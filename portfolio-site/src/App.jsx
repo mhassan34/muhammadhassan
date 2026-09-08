@@ -22,8 +22,8 @@ const projects = [
     title: "Shipping-ready interfaces",
     description:
       "A complete Unreal Engine interface system spanning server browsing, settings, controls, statistics, loadouts, player actions, training flows, and the in-game HUD.",
-    image: `${base}assets/project-umg.png`,
-    alt: "Polished Unreal Engine graphics settings interface in a virtual festival environment",
+    image: `${base}assets/project-umg-v2.png`,
+    alt: "Multiplayer festival interface system showing server browser, loadout, and in-game HUD",
     role: "UI Engineering",
     tech: "UMG · C++ · Blueprints",
     href: "#project-archive",
@@ -37,8 +37,8 @@ const projects = [
     title: "Real spaces, rebuilt for the web",
     description:
       "DirectSplat automates environment analysis, smart camera planning, GPU capture, reconstruction, optimization, and web-ready Gaussian Splat export inside Unreal Engine.",
-    image: `${base}assets/project-splat.png`,
-    alt: "Industrial restaurant transitioning from a photoreal Unreal render into a Gaussian Splat reconstruction",
+    image: `${base}assets/project-splat-v2.png`,
+    alt: "Interior progressing from planned camera capture through Gaussian point reconstruction to a finished scene",
     role: "Lead Programmer",
     tech: "UE5 · RDG · GPU Readback",
     href: "#directsplat",
@@ -52,8 +52,8 @@ const projects = [
     title: "Synchronized worlds at scale",
     description:
       "EOS sessions, dedicated-server flows, replication, RPCs, squads, achievements, and synchronized interaction built for browser-delivered Unreal experiences.",
-    image: `${base}assets/project-multiplayer.png`,
-    alt: "Third-person player overlooking a large multiplayer virtual festival",
+    image: `${base}assets/project-multiplayer-v2.png`,
+    alt: "Synchronized player avatars interacting inside a large multiplayer virtual concert",
     role: "Multiplayer Developer",
     tech: "EOS · Replication · RPCs",
     href: "#project-archive",
@@ -66,8 +66,8 @@ const projectArchive = [
     index: "01",
     title: "Invasion Multiplayer UI",
     category: "UMG / UI Engineering",
-    image: `${base}assets/project-umg.png`,
-    alt: "Production-ready Unreal Engine multiplayer settings interface",
+    image: `${base}assets/project-umg-v2.png`,
+    alt: "Production-ready multiplayer UI system with server browser, loadout, and HUD",
     summary:
       "Designed and implemented a connected interface system for a multiplayer game, covering the complete path from server discovery to in-game HUD.",
     details: [
@@ -82,8 +82,8 @@ const projectArchive = [
     index: "02",
     title: "DirectSplat",
     category: "Gaussian Splatting / Plugin",
-    image: `${base}assets/project-splat.png`,
-    alt: "Unreal Engine restaurant environment transitioning into a Gaussian Splat",
+    image: `${base}assets/project-splat-v2.png`,
+    alt: "Unreal environment moving through camera capture, Gaussian reconstruction, and final output",
     summary:
       "An Unreal Engine plugin that analyzes a level, plans capture positions, reconstructs Gaussian Splats, produces LODs, and exports practical runtime results.",
     details: [
@@ -98,8 +98,8 @@ const projectArchive = [
     index: "03",
     title: "Multiplayer Concert World",
     category: "Online Systems / Real-Time",
-    image: `${base}assets/project-multiplayer.png`,
-    alt: "Large-scale multiplayer virtual concert world",
+    image: `${base}assets/project-multiplayer-v2.png`,
+    alt: "Large-scale multiplayer concert with synchronized avatars and social interactions",
     summary:
       "A browser-delivered UE5 concert experience combining synchronized players, high-density crowds, live interaction, and cinematic performance systems.",
     details: [
@@ -282,11 +282,10 @@ function Mark() {
   );
 }
 
-function SectionHeading({ index, title, note }) {
+function SectionHeading({ title, note }) {
   return (
     <div className="section-heading">
       <div className="section-heading__title">
-        <span className="section-index">[ {index} ]</span>
         <h2>{title}</h2>
       </div>
       {note ? <p>{note}</p> : null}
@@ -363,7 +362,6 @@ function MainPortfolio() {
       <main>
         <section className="hero section" id="intro">
           <div className="hero__identity">
-            <span className="section-index">[ 01 ]</span>
             <h1>
               Muhammad
               <br />
@@ -388,13 +386,6 @@ function MainPortfolio() {
             </div>
           </div>
 
-          <div className="hero__proof" aria-label="Recruiter proof">
-            <span className="eyebrow">Recruiter proof</span>
-            <strong>4+ years</strong>
-            <b>C++ / Blueprints</b>
-            <p>Moshpit Studio / Skylla Studio</p>
-          </div>
-
           <div className="hero__statement" aria-hidden="true">
             <span>Real projects</span>
             <span>Real worlds</span>
@@ -403,7 +394,7 @@ function MainPortfolio() {
         </section>
 
         <section className="work section" id="work">
-          <SectionHeading index="02" title="Selected projects" note="Three flagship systems. Ten complete breakdowns." />
+          <SectionHeading title="Highlights" note="Three flagship systems. Ten complete breakdowns." />
 
           <div className="project-showcase">
             <div className="project-tabs" role="tablist" aria-label="Featured projects">
@@ -416,7 +407,6 @@ function MainPortfolio() {
                   aria-controls="project-panel"
                   onClick={() => setActiveProject(index)}
                 >
-                  <span>{item.index}</span>
                   <strong>{item.short}</strong>
                 </button>
               ))}
@@ -442,7 +432,6 @@ function MainPortfolio() {
                 <span>{project.tech}</span>
               </div>
               <div className="project-controls">
-                <span>{project.index} / 03</span>
                 <button type="button" onClick={() => moveProject(-1)} aria-label="Previous project">
                   <ArrowLeft size={20} />
                 </button>
@@ -455,18 +444,16 @@ function MainPortfolio() {
 
           <div className="project-archive" id="project-archive">
             <div className="project-archive__heading">
-              <span className="eyebrow">Full project breakdown</span>
-              <h3>Selected work, explained on-site.</h3>
-              <p>Responsibilities, systems, and technical decisions—kept here so recruiters can evaluate the work without leaving the portfolio.</p>
+              <span className="eyebrow">Project archive</span>
+              <h3>Projects</h3>
             </div>
 
             <div className="project-grid">
               {projectArchive.map((item) => (
-                <article className="project-card" key={item.index}>
+                <article className="project-card" key={item.title}>
                   <img src={item.image} alt={item.alt} loading="lazy" />
                   <div className="project-card__body">
                     <div className="project-card__meta">
-                      <span>{item.index}</span>
                       <span>{item.category}</span>
                     </div>
                     <h3>{item.title}</h3>
@@ -501,7 +488,7 @@ function MainPortfolio() {
         </section>
 
         <section className="experience section" id="experience">
-          <SectionHeading index="03" title="Experience" note="Building for teams, creators, and players." />
+          <SectionHeading title="Experience" note="Building for teams, creators, and players." />
           <div className="experience-list">
             {experience.map((item) => (
               <article key={item.company}>
@@ -524,11 +511,10 @@ function MainPortfolio() {
         </section>
 
         <section className="expertise section" id="expertise">
-          <SectionHeading index="04" title="Core expertise" note="Engine depth with a product mindset." />
+          <SectionHeading title="Core expertise" note="Engine depth with a product mindset." />
           <div className="expertise-grid">
-            {expertise.map(([title, description, details], index) => (
+            {expertise.map(([title, description, details]) => (
               <article key={title}>
-                <span>{String(index + 1).padStart(2, "0")}</span>
                 <h3>{title}</h3>
                 <p>{description}</p>
                 <ul>
@@ -541,7 +527,6 @@ function MainPortfolio() {
 
         <section className="contact section" id="contact">
           <div>
-            <span className="section-index">[ 05 ]</span>
             <p className="eyebrow">Available for Unreal Engine roles</p>
             <h2>Let’s build a world<br />that works.</h2>
           </div>
@@ -630,11 +615,11 @@ function DirectSplatCaseStudy() {
               <span><small>Focus</small>Capture · Optimize · Export</span>
             </div>
           </div>
-          <img src={`${base}assets/project-splat.png`} alt="DirectSplat render-to-point-cloud transition" />
+          <img src={`${base}assets/project-splat-v2.png`} alt="DirectSplat capture-to-point-cloud pipeline" />
         </section>
 
         <section className="case-section case-overview">
-          <span className="section-index">[ 01 / Overview ]</span>
+          <span className="eyebrow">Overview</span>
           <h2>One action replaces a fragmented spatial-capture workflow.</h2>
           <div>
             <p>DirectSplat understands an Unreal level, creates useful viewpoints, rejects invalid captures, processes dense spatial data, and produces an optimized result without a manually authored camera path.</p>
@@ -643,7 +628,7 @@ function DirectSplatCaseStudy() {
         </section>
 
         <section className="case-section">
-          <SectionHeading index="02 / System" title="From level to splat" note="A complete spatial pipeline." />
+          <SectionHeading title="From level to splat" note="A complete spatial pipeline." />
           <div className="pipeline-list">
             {pipeline.map(([number, title, copy]) => (
               <article key={number}>
@@ -656,7 +641,7 @@ function DirectSplatCaseStudy() {
         </section>
 
         <section className="case-section case-contribution">
-          <SectionHeading index="03 / Contribution" title="Built across the Unreal stack" />
+          <SectionHeading title="Built across the Unreal stack" />
           <div className="contribution-grid">
             <article>
               <span>ENGINE</span>
@@ -682,7 +667,7 @@ function DirectSplatCaseStudy() {
         </section>
 
         <section className="case-result">
-          <span className="section-index">[ 04 / Result ]</span>
+          <span className="eyebrow">Result</span>
           <h2>Hundreds of megabytes reduced to tens—while preserving useful detail.</h2>
           <p>A production-minded capture system built for scale, interruption, and repeatable delivery.</p>
           <a

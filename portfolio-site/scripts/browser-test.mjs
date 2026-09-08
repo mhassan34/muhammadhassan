@@ -26,6 +26,7 @@ try {
 
   await desktop.goto(origin, { waitUntil: "networkidle" });
   check("homepage heading", (await desktop.locator("h1").innerText()).toLowerCase().includes("muhammad"));
+  await desktop.screenshot({ path: "qa/implementation-home-v4.png", fullPage: false });
   check("three featured project tabs", (await desktop.locator(".project-tab").count()) === 3);
 
   await desktop.getByRole("tab", { name: /UMG/ }).click();
@@ -46,13 +47,19 @@ try {
   await desktop.waitForURL(/#work$/);
   const workHeading = desktop.locator("#work h2");
   await workHeading.waitFor({ state: "visible" });
-  check("case study return path", (await workHeading.innerText()).toLowerCase().includes("selected projects"));
+  check("case study return path", (await workHeading.innerText()).toLowerCase().includes("highlights"));
   check("ten detailed project cards", (await desktop.locator(".project-card").count()) === 10);
+  check("project archive heading simplified", await desktop.getByRole("heading", { name: "Projects", exact: true }).isVisible());
+  check("section numbering removed", (await desktop.locator(".section-index").count()) === 0);
+  check("expertise panel numbering removed", (await desktop.locator(".expertise-grid article > span").count()) === 0);
+  check("recruiter proof removed", (await desktop.getByText("Recruiter proof", { exact: true }).count()) === 0);
+  check("old recruiter explanation removed", (await desktop.getByText(/Responsibilities, systems, and technical decisions/).count()) === 0);
   check("Moshpit experience expanded", (await desktop.locator(".experience-list article").first().locator("li").count()) === 5);
   check("Fiverr remains concise", (await desktop.locator(".experience-list article").nth(2).locator("li").count()) === 0);
   check("six expanded expertise areas", (await desktop.locator(".expertise-grid article").count()) === 6);
   check("education removed", (await desktop.locator(".education-line").count()) === 0);
   check("Behance CTA kept after project details", (await desktop.locator(".behance-cta a").count()) === 1);
+  check("Upwork profile kept", (await desktop.locator('a[href*="upwork.com/freelancers/~0199e6bef182cf00b6"]').count()) === 1);
 
   await desktop.evaluate(() => { document.documentElement.style.scrollBehavior = "auto"; });
   await desktop.locator("#project-archive").evaluate((element) => element.scrollIntoView({ block: "start" }));

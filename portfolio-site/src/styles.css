@@ -231,15 +231,10 @@ img {
   border-top: 1px solid var(--line);
 }
 
-.section-index,
 .eyebrow {
   font: 500 11px/1.35 "IBM Plex Mono", monospace;
   text-transform: uppercase;
   letter-spacing: 0.17em;
-}
-
-.section-index {
-  color: #4d514a;
 }
 
 .eyebrow {
@@ -251,7 +246,7 @@ img {
   padding-top: 28px;
   padding-bottom: 24px;
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.72fr) minmax(160px, 0.34fr);
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   gap: clamp(32px, 5vw, 88px);
 }
@@ -286,49 +281,6 @@ img {
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 14px;
-}
-
-.hero__proof {
-  min-height: 250px;
-  padding-left: clamp(28px, 4vw, 58px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 9px;
-  border-left: 1px solid var(--line);
-}
-
-.hero__proof::before {
-  content: "";
-  width: 24px;
-  height: 2px;
-  margin: 5px 0 8px;
-  background: var(--ink);
-}
-
-.hero__proof strong,
-.hero__proof b {
-  text-transform: uppercase;
-}
-
-.hero__proof strong {
-  margin-top: 4px;
-  font-size: clamp(34px, 3.3vw, 53px);
-  line-height: 1;
-  letter-spacing: -0.04em;
-}
-
-.hero__proof b {
-  font: 500 clamp(22px, 2.5vw, 35px)/1.05 "IBM Plex Mono", monospace;
-  letter-spacing: -0.06em;
-}
-
-.hero__proof p {
-  margin: 10px 0 0;
-  color: var(--muted);
-  font: 400 13px/1.5 "IBM Plex Mono", monospace;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
 }
 
 .hero__statement {
@@ -420,8 +372,7 @@ img {
   width: 100%;
   padding: 17px 12px 17px 18px;
   display: grid;
-  grid-template-columns: 30px 1fr;
-  gap: 8px;
+  grid-template-columns: 1fr;
   border: 0;
   border-left: 2px solid var(--line-soft);
   background: transparent;
@@ -436,10 +387,6 @@ img {
   padding-left: 24px;
   border-color: var(--lime);
   color: var(--ink);
-}
-
-.project-tab span {
-  font: 400 12px/1.2 "IBM Plex Mono", monospace;
 }
 
 .project-tab strong {
@@ -546,13 +493,6 @@ img {
   gap: 8px;
 }
 
-.project-controls > span {
-  margin-right: 5px;
-  color: white;
-  font: 400 11px/1 "IBM Plex Mono", monospace;
-  letter-spacing: 0.08em;
-}
-
 .project-controls button {
   width: 44px;
   height: 44px;
@@ -579,7 +519,7 @@ img {
 .project-archive__heading {
   margin-bottom: 42px;
   display: grid;
-  grid-template-columns: 0.35fr 0.8fr 0.65fr;
+  grid-template-columns: 0.35fr 1.45fr;
   align-items: start;
   gap: clamp(30px, 6vw, 90px);
 }
@@ -591,14 +531,6 @@ img {
   line-height: 0.95;
   letter-spacing: -0.055em;
   text-transform: uppercase;
-}
-
-.project-archive__heading > p {
-  max-width: 48ch;
-  margin: 3px 0 0;
-  color: var(--muted);
-  font-size: 16px;
-  line-height: 1.55;
 }
 
 .project-grid {
@@ -756,13 +688,8 @@ img {
   background: var(--paper-deep);
 }
 
-.expertise-grid article > span {
-  color: var(--muted);
-  font: 400 11px/1 "IBM Plex Mono", monospace;
-}
-
 .expertise-grid h3 {
-  margin: 45px 0 12px;
+  margin: 0 0 12px;
   font-size: 25px;
   letter-spacing: -0.04em;
 }
@@ -786,7 +713,6 @@ img {
   color: white;
 }
 
-.contact .section-index,
 .contact .eyebrow {
   color: #a7aaa2;
 }
@@ -1011,7 +937,7 @@ img {
   color: white;
 }
 
-.case-result .section-index {
+.case-result .eyebrow {
   color: #9b9e96;
 }
 
@@ -1079,7 +1005,7 @@ img {
   }
 
   .hero {
-    grid-template-columns: 1fr 0.75fr;
+    grid-template-columns: 1fr;
   }
 
   .hero__statement {
@@ -1092,10 +1018,6 @@ img {
 
   .project-archive__heading {
     grid-template-columns: 0.35fr 1fr;
-  }
-
-  .project-archive__heading > p {
-    grid-column: 2;
   }
 
   .case-overview {
@@ -1183,13 +1105,6 @@ img {
     font-size: 17px;
   }
 
-  .hero__proof {
-    min-height: auto;
-    padding: 28px 0 0;
-    border-top: 1px solid var(--line);
-    border-left: 0;
-  }
-
   .section-heading,
   .section-heading__title {
     align-items: flex-start;
@@ -1262,10 +1177,6 @@ img {
     bottom: auto;
   }
 
-  .project-controls > span {
-    display: none;
-  }
-
   .project-controls button {
     width: 42px;
     height: 42px;
@@ -1274,10 +1185,6 @@ img {
   .project-archive__heading,
   .project-grid {
     grid-template-columns: 1fr;
-  }
-
-  .project-archive__heading > p {
-    grid-column: 1;
   }
 
   .project-card footer,
