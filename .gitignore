@@ -1,0 +1,5 @@
+.tools/
+.vs/
+**/node_modules/
+**/dist/
+portfolio-site/qa/
