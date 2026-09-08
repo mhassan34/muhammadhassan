@@ -571,6 +571,16 @@ function MainPortfolio() {
               <strong>muhammed-hassan</strong>
               <ArrowUpRight size={24} />
             </a>
+            <a
+              className="contact-link"
+              href="https://www.upwork.com/freelancers/~0199e6bef182cf00b6?mp_source=share"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span>Upwork</span>
+              <strong>Freelance profile</strong>
+              <ArrowUpRight size={24} />
+            </a>
           </div>
         </section>
       </main>
