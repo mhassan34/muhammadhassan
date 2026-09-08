@@ -47,6 +47,23 @@ try {
   const workHeading = desktop.locator("#work h2");
   await workHeading.waitFor({ state: "visible" });
   check("case study return path", (await workHeading.innerText()).toLowerCase().includes("selected projects"));
+  check("ten detailed project cards", (await desktop.locator(".project-card").count()) === 10);
+  check("Moshpit experience expanded", (await desktop.locator(".experience-list article").first().locator("li").count()) === 5);
+  check("Fiverr remains concise", (await desktop.locator(".experience-list article").nth(2).locator("li").count()) === 0);
+  check("six expanded expertise areas", (await desktop.locator(".expertise-grid article").count()) === 6);
+  check("education removed", (await desktop.locator(".education-line").count()) === 0);
+  check("Behance CTA kept after project details", (await desktop.locator(".behance-cta a").count()) === 1);
+
+  await desktop.evaluate(() => { document.documentElement.style.scrollBehavior = "auto"; });
+  await desktop.locator("#project-archive").evaluate((element) => element.scrollIntoView({ block: "start" }));
+  await desktop.waitForTimeout(500);
+  await desktop.screenshot({ path: "qa/implementation-project-archive.png", fullPage: false });
+  await desktop.locator("#experience").evaluate((element) => element.scrollIntoView({ block: "start" }));
+  await desktop.waitForTimeout(250);
+  await desktop.screenshot({ path: "qa/implementation-experience.png", fullPage: false });
+  await desktop.locator("#expertise").evaluate((element) => element.scrollIntoView({ block: "start" }));
+  await desktop.waitForTimeout(250);
+  await desktop.screenshot({ path: "qa/implementation-expertise.png", fullPage: false });
 
   const cvResponse = await desktop.request.get(`${origin}Muhammad-Hassan-CV.pdf`);
   check("downloadable CV", cvResponse.ok(), `status ${cvResponse.status()}`);

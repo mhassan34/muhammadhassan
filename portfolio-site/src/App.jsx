@@ -26,8 +26,8 @@ const projects = [
     alt: "Polished Unreal Engine graphics settings interface in a virtual festival environment",
     role: "UI Engineering",
     tech: "UMG · C++ · Blueprints",
-    href: "https://www.behance.net/gallery/230966563/User-Interface-for-Multiplayer-Game",
-    action: "View on Behance",
+    href: "#project-archive",
+    action: "See full breakdown",
   },
   {
     id: "splat",
@@ -56,41 +56,171 @@ const projects = [
     alt: "Third-person player overlooking a large multiplayer virtual festival",
     role: "Multiplayer Developer",
     tech: "EOS · Replication · RPCs",
-    href: "https://www.behance.net/gallery/230962253/Multiplayer-Game",
-    action: "View on Behance",
+    href: "#project-archive",
+    action: "See full breakdown",
   },
 ];
 
-const moreWork = [
+const projectArchive = [
   {
+    index: "01",
+    title: "Invasion Multiplayer UI",
+    category: "UMG / UI Engineering",
+    image: `${base}assets/project-umg.png`,
+    alt: "Production-ready Unreal Engine multiplayer settings interface",
+    summary:
+      "Designed and implemented a connected interface system for a multiplayer game, covering the complete path from server discovery to in-game HUD.",
+    details: [
+      "Server browser, filters, settings, key bindings, statistics, training, loadouts, player options, and HUD flows.",
+      "Reusable UMG widgets, customizable controls, and navigation implemented directly in Unreal Engine 5.",
+      "UI logic connected to gameplay and backend data instead of remaining a visual-only prototype.",
+    ],
+    role: "UI Engineering",
+    tech: "UMG · C++ · Blueprints",
+  },
+  {
+    index: "02",
+    title: "DirectSplat",
+    category: "Gaussian Splatting / Plugin",
+    image: `${base}assets/project-splat.png`,
+    alt: "Unreal Engine restaurant environment transitioning into a Gaussian Splat",
+    summary:
+      "An Unreal Engine plugin that analyzes a level, plans capture positions, reconstructs Gaussian Splats, produces LODs, and exports practical runtime results.",
+    details: [
+      "Adaptive grid, ring, boundary, and geometry-aware camera planning with invalid-view rejection.",
+      "RDG compute passes, GPU readback, reconstruction, MicroTrainer processing, and resumable long-running jobs.",
+      "Voxel and variance-based merging reduced outputs from hundreds of megabytes to tens while preserving useful detail.",
+    ],
+    role: "Lead Programmer",
+    tech: "UE5 · C++ · RDG · PLY",
+  },
+  {
+    index: "03",
+    title: "Multiplayer Concert World",
+    category: "Online Systems / Real-Time",
+    image: `${base}assets/project-multiplayer.png`,
+    alt: "Large-scale multiplayer virtual concert world",
+    summary:
+      "A browser-delivered UE5 concert experience combining synchronized players, high-density crowds, live interaction, and cinematic performance systems.",
+    details: [
+      "Replicated character widgets, animations, emojis, player interactions, chat, and voice-chat systems.",
+      "Epic Online Services and Steam-compatible online flows with Pixel Streaming delivery.",
+      "Metahumans, Avaturn characters, motion matching, and Nanite crowd systems built with C++ and Blueprints.",
+    ],
+    role: "Gameplay & Multiplayer",
+    tech: "EOS · Pixel Streaming · Replication",
+  },
+  {
+    index: "04",
     title: "AI NPC Systems",
     category: "Behavior Trees · Crowd Interaction",
-    href: "https://www.behance.net/gallery/231308897/AI-NPCs-UE5",
+    image: `${base}assets/project-ai-npcs.png`,
+    alt: "Unreal Engine Behavior Tree for interactive AI NPCs",
+    summary:
+      "Smart NPCs that replace lightweight static crowd meshes only when interaction is needed, keeping large social spaces responsive.",
+    details: [
+      "NPC-to-NPC and player interaction, dialogue, dancing, random movement, and concert-event participation.",
+      "Custom Behavior Tree tasks find interactable locations and coordinate movement between activity points.",
+      "Designed to bridge optimized ambient crowds with higher-fidelity interactive characters during play.",
+    ],
+    role: "AI Gameplay",
+    tech: "Behavior Trees · Blueprints · C++",
   },
   {
+    index: "05",
     title: "Anim to Texture Plugin",
     category: "Nanite HISM · Editor Tools",
-    href: "https://www.behance.net/gallery/231408179/Plugin-Development-(Anim-To-texture)",
+    image: `${base}assets/project-anim-texture.png`,
+    alt: "Unreal Engine material graph for a Nanite animation-to-texture crowd plugin",
+    summary:
+      "An updated animation-to-texture plugin created specifically for high-quality Nanite HISM crowds and practical artist workflows.",
+    details: [
+      "Supports different rotations and animations per mesh while moving animation work away from the game thread.",
+      "Simple editor UI for baking animated meshes, assigning data, spawning crowds, and controlling instances.",
+      "Material controls make animation switching and playback-speed adjustment accessible without code changes.",
+    ],
+    role: "Plugin Development",
+    tech: "Nanite · HISM · Vertex Animation",
   },
   {
+    index: "06",
     title: "Dynamic Media Playback",
     category: "Virtual Production · Blueprints",
-    href: "https://www.behance.net/gallery/231311237/Dynamic-Media-Playback-in-Camera-Shots",
+    image: `${base}assets/project-dynamic-media.png`,
+    alt: "Blueprint graph for dynamic Unreal Engine media playback",
+    summary:
+      "A Blueprint-only runtime media system for changing content on screens, props, LED walls, and backdrops during virtual-production shots.",
+    details: [
+      "Builds the Media Player, Media Texture, and Dynamic Material Instance entirely at runtime.",
+      "Loads video from a file path, binds it to scene materials, and synchronizes playback with camera or scene logic.",
+      "Modular enough to duplicate across multiple screens without reimporting assets or editing each shot.",
+    ],
+    role: "Virtual Production Tools",
+    tech: "Blueprints · Media Framework · DMI",
   },
   {
+    index: "07",
     title: "Advanced Crowd Manager",
     category: "Optimization · Runtime Systems",
-    href: "https://www.behance.net/gallery/221947345/Advanced-Crowd-Manager-System",
+    image: `${base}assets/project-crowd.png`,
+    alt: "Dense real-time crowd rendered with Unreal Engine Nanite instances",
+    summary:
+      "A GPU-oriented crowd system that renders thousands of higher-quality characters while preserving runtime control and player interaction.",
+    details: [
+      "Nanite HISM meshes and vertex animation reduce CPU cost while maintaining large crowd density.",
+      "Runtime density, random animation, clothing, material, speed, and per-instance property controls.",
+      "Selected static instances convert to skeletal characters when higher-fidelity player interaction is required.",
+    ],
+    role: "Crowd Systems",
+    tech: "C++ · Nanite · HISM · GPU Animation",
   },
   {
+    index: "08",
     title: "Lighting Sequence Tools",
     category: "Concert Systems · Creative Tooling",
-    href: "https://www.behance.net/gallery/221783063/Advanced-Lighting-Sequences-System",
+    image: `${base}assets/project-lighting.png`,
+    alt: "Unreal Engine concert-lighting editor and stage preview",
+    summary:
+      "An artist-facing system for placing concert lights, authoring repeatable lighting sequences, and previewing complex stage behavior.",
+    details: [
+      "Beam, point, strobe, laser, focus, rotation, random movement, and spread sequence types.",
+      "World/local placement, mouse-selected focus targets, orientation, intensity, distance, and music-response controls.",
+      "Save, preview, and stop controls let creators iterate on a concert setup without rebuilding gameplay logic.",
+    ],
+    role: "Tools & Gameplay",
+    tech: "UMG · Blueprints · Sequencer",
   },
   {
+    index: "09",
     title: "Motion Matching Setup",
     category: "Animation · IK Retargeting",
-    href: "https://www.behance.net/gallery/231303935/Avaturn-and-Animation-setup-(Motion-matching)",
+    image: `${base}assets/project-motion-matching.png`,
+    alt: "Avaturn character rig and animation retargeting setup",
+    summary:
+      "A complete Avaturn character integration with custom IK retargeting, motion-matched locomotion, combat, traversal, and AI movement.",
+    details: [
+      "Custom IK Rig and UEFN retargeter with goals, full-body solver, rotation correction, and root adjustment.",
+      "Animation states for shooting, dance, idle, walk, run, sprint, dash, super jump, and related transitions.",
+      "Chooser Tables drive state selection while trace-based traversal calculates obstacles without tagged helper actors.",
+    ],
+    role: "Character Systems",
+    tech: "Motion Matching · IK Rig · Chooser Tables",
+  },
+  {
+    index: "10",
+    title: "Unity JohnLemon",
+    category: "Early Game Development Study",
+    image: `${base}assets/project-unity-johnlemon.png`,
+    alt: "Top-down Unity John Lemon haunted-house game scene",
+    summary:
+      "An earlier Unity project focused on building a complete playable scene and strengthening core game-development fundamentals.",
+    details: [
+      "Character-driven exploration inside a composed top-down environment.",
+      "Foundational scene logic, triggers, player control, and game-state flow.",
+      "Included as a concise record of the development path that preceded production Unreal Engine work.",
+    ],
+    role: "Gameplay Study",
+    tech: "Unity · C# · Scene Logic",
   },
 ];
 
@@ -100,14 +230,27 @@ const experience = [
     company: "Moshpit Studio",
     role: "Game Developer",
     summary:
-      "Gameplay systems, Pixel Streaming, creator tools, AI cinematics, spatial capture, optimization, and PC/Android delivery for large Unreal experiences.",
+      "Production Unreal Engine development for browser-delivered virtual concerts, creator tools, cinematic worlds, and spatial experiences.",
+    highlights: [
+      "Built gameplay and interaction systems in C++ and Blueprints for large real-time environments.",
+      "Delivered multiplayer and Pixel Streaming workflows for browser-accessible concerts and shared worlds.",
+      "Created reusable UMG tools, editor utilities, plugins, validation flows, and creator-facing controls.",
+      "Optimized Nanite crowds, assets, memory, level streaming, and runtime performance across PC and Android targets.",
+      "Developed spatial capture, point-cloud, Gaussian Splat, and AI-assisted cinematic workflows.",
+    ],
   },
   {
     period: "2025 — PRESENT",
     company: "Skylla Studio · Greece",
     role: "Multiplayer Developer",
     summary:
-      "Source-build Unreal development with EOS, dedicated servers, replicated gameplay, session flows, and multiplayer UI/UX.",
+      "Multiplayer engineering for Invasion, a modern-warfare team FPS built around tactical combat and dedicated online play.",
+    highlights: [
+      "Worked from an Unreal Engine source build and designed dedicated-server architecture around Epic Online Services.",
+      "Implemented session creation, discovery, joining, leaving, server browsing, and squad flows.",
+      "Built replicated gameplay state, RPC-driven interactions, online achievements, and resilient multiplayer UI/UX.",
+      "Connected player-facing UMG screens to real session and server state rather than static menu flows.",
+    ],
   },
   {
     period: "2019 — 2023",
@@ -119,10 +262,12 @@ const experience = [
 ];
 
 const expertise = [
-  ["Gameplay & multiplayer", "Replication, RPCs, EOS, dedicated servers, session flows, and player-facing systems."],
-  ["Tools & plugins", "C++ modules, Blueprint APIs, editor tooling, UMG systems, validation, and packaging."],
-  ["Rendering & spatial", "RDG compute passes, GPU readback, point data, Gaussian Splatting, and PLY export."],
-  ["Real-time delivery", "Pixel Streaming, profiling, level streaming, memory, assets, and release optimization."],
+  ["Gameplay architecture", "Production systems designed to stay clear across C++ and Blueprints.", ["Reusable components and subsystems", "Blueprint-callable C++ APIs", "Gameplay interaction and state flows"]],
+  ["Multiplayer & online", "Authoritative real-time systems from session discovery through moment-to-moment play.", ["Replication and RPC design", "EOS sessions and dedicated servers", "Squads, achievements, chat, and voice"]],
+  ["UMG & interface engineering", "Player-facing and creator-facing interfaces connected to real runtime data.", ["Server browsers and filters", "Settings, keybinds, loadouts, and HUD", "Reusable widgets and navigation"]],
+  ["Tools & plugins", "Workflows that let artists and designers produce more without engineering bottlenecks.", ["C++ modules and editor utilities", "Blueprint APIs and validation", "Packaging and deployment-ready tooling"]],
+  ["Rendering & spatial", "GPU and spatial pipelines for turning complex environments into useful runtime assets.", ["RDG compute and GPU readback", "Gaussian Splat capture and LOD", "Point data, PLY export, and optimization"]],
+  ["Performance & delivery", "Profiling and shipping real-time experiences across browsers and constrained devices.", ["Pixel Streaming and web delivery", "Nanite HISM crowds and GPU animation", "Memory, assets, level streaming, PC and Android"]],
 ];
 
 function Mark() {
@@ -258,7 +403,7 @@ function MainPortfolio() {
         </section>
 
         <section className="work section" id="work">
-          <SectionHeading index="02" title="Selected projects" note="Three areas. Real experience." />
+          <SectionHeading index="02" title="Selected projects" note="Three flagship systems. Ten complete breakdowns." />
 
           <div className="project-showcase">
             <div className="project-tabs" role="tablist" aria-label="Featured projects">
@@ -308,6 +453,51 @@ function MainPortfolio() {
             </article>
           </div>
 
+          <div className="project-archive" id="project-archive">
+            <div className="project-archive__heading">
+              <span className="eyebrow">Full project breakdown</span>
+              <h3>Selected work, explained on-site.</h3>
+              <p>Responsibilities, systems, and technical decisions—kept here so recruiters can evaluate the work without leaving the portfolio.</p>
+            </div>
+
+            <div className="project-grid">
+              {projectArchive.map((item) => (
+                <article className="project-card" key={item.index}>
+                  <img src={item.image} alt={item.alt} loading="lazy" />
+                  <div className="project-card__body">
+                    <div className="project-card__meta">
+                      <span>{item.index}</span>
+                      <span>{item.category}</span>
+                    </div>
+                    <h3>{item.title}</h3>
+                    <p>{item.summary}</p>
+                    <ul>
+                      {item.details.map((detail) => <li key={detail}>{detail}</li>)}
+                    </ul>
+                    <footer>
+                      <span>{item.role}</span>
+                      <span>{item.tech}</span>
+                    </footer>
+                  </div>
+                </article>
+              ))}
+            </div>
+
+            <div className="behance-cta">
+              <div>
+                <span className="eyebrow">Original project posts</span>
+                <p>Prefer the source uploads, process images, and videos?</p>
+              </div>
+              <a
+                className="button button--outline"
+                href="https://www.behance.net/muhammed-hassan"
+                target="_blank"
+                rel="noreferrer"
+              >
+                View Behance portfolio <BehanceLogo size={19} weight="bold" />
+              </a>
+            </div>
+          </div>
         </section>
 
         <section className="experience section" id="experience">
@@ -320,7 +510,14 @@ function MainPortfolio() {
                   <h3>{item.company}</h3>
                   <p className="experience-role">{item.role}</p>
                 </div>
-                <p>{item.summary}</p>
+                <div className="experience-copy">
+                  <p>{item.summary}</p>
+                  {item.highlights ? (
+                    <ul>
+                      {item.highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}
+                    </ul>
+                  ) : null}
+                </div>
               </article>
             ))}
           </div>
@@ -329,45 +526,16 @@ function MainPortfolio() {
         <section className="expertise section" id="expertise">
           <SectionHeading index="04" title="Core expertise" note="Engine depth with a product mindset." />
           <div className="expertise-grid">
-            {expertise.map(([title, description], index) => (
+            {expertise.map(([title, description, details], index) => (
               <article key={title}>
                 <span>{String(index + 1).padStart(2, "0")}</span>
                 <h3>{title}</h3>
                 <p>{description}</p>
+                <ul>
+                  {details.map((detail) => <li key={detail}>{detail}</li>)}
+                </ul>
               </article>
             ))}
-          </div>
-          <div className="education-line">
-            <span className="eyebrow">Education</span>
-            <strong>BS Information Technology</strong>
-            <span>PUCIT · 2018 — 2022</span>
-          </div>
-        </section>
-
-        <section className="archive section" aria-labelledby="archive-title">
-          <div className="more-work">
-            <div className="more-work__intro">
-              <span className="eyebrow">More work</span>
-              <p id="archive-title">Focused technical studies, tools, and real-time systems.</p>
-              <a
-                className="text-link"
-                href="https://www.behance.net/muhammed-hassan"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Full Behance portfolio <BehanceLogo size={19} weight="bold" />
-              </a>
-            </div>
-            <div className="more-work__list">
-              {moreWork.map((item, index) => (
-                <a key={item.title} href={item.href} target="_blank" rel="noreferrer">
-                  <span>{String(index + 4).padStart(2, "0")}</span>
-                  <strong>{item.title}</strong>
-                  <small>{item.category}</small>
-                  <ArrowUpRight size={19} />
-                </a>
-              ))}
-            </div>
           </div>
         </section>
 

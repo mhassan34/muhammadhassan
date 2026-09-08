@@ -15,3 +15,6 @@ Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts
 - The first three featured projects, in order, are UMG, DirectSplat, and Multiplayer; DirectSplat is the flagship.
 - Project imagery should be polished, cohesive key art derived from Muhammad's real project screenshots rather than generic stock imagery.
 - Recruiter conversion is the priority: email, LinkedIn, Behance, and downloadable CV must remain obvious and functional.
+- Keep the portfolio data primarily on-site: show all ten relevant Behance projects with substantive responsibilities and technical details, then place the Behance portfolio CTA after those breakdowns.
+- Expand Moshpit Studio and Skylla Studio experience while keeping the Fiverr entry concise.
+- Do not show Education. Maintain six detailed Core Expertise areas instead.

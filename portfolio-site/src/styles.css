@@ -380,7 +380,7 @@ img {
 
 .work {
   padding-top: 24px;
-  padding-bottom: 30px;
+  padding-bottom: clamp(72px, 8vw, 122px);
 }
 
 .work > .section-heading {
@@ -397,7 +397,7 @@ img {
 }
 
 .experience {
-  padding-top: 36px;
+  padding-top: clamp(72px, 8vw, 122px);
 }
 
 .project-showcase {
@@ -571,57 +571,133 @@ img {
   color: var(--ink);
 }
 
-.more-work {
-  margin-top: clamp(84px, 10vw, 140px);
+.project-archive {
+  margin-top: clamp(88px, 10vw, 150px);
+  scroll-margin-top: 92px;
+}
+
+.project-archive__heading {
+  margin-bottom: 42px;
   display: grid;
-  grid-template-columns: minmax(220px, 0.42fr) 1fr;
-  gap: clamp(50px, 9vw, 140px);
+  grid-template-columns: 0.35fr 0.8fr 0.65fr;
+  align-items: start;
+  gap: clamp(30px, 6vw, 90px);
 }
 
-.archive .more-work {
-  margin-top: 0;
-}
-
-.more-work__intro p {
-  max-width: 31ch;
-  margin: 16px 0 24px;
-  font-size: 23px;
-  line-height: 1.25;
-  letter-spacing: -0.03em;
-}
-
-.more-work__list {
-  border-top: 1px solid var(--line);
-}
-
-.more-work__list a {
-  min-height: 76px;
-  padding: 0 4px;
-  display: grid;
-  grid-template-columns: 45px 1fr minmax(210px, 0.7fr) 22px;
-  align-items: center;
-  gap: 16px;
-  border-bottom: 1px solid var(--line);
-  transition: padding 160ms ease, background 160ms ease;
-}
-
-.more-work__list a:hover {
-  padding-right: 16px;
-  padding-left: 16px;
-  background: var(--lime);
-}
-
-.more-work__list span,
-.more-work__list small {
-  color: var(--muted);
-  font: 400 10px/1.3 "IBM Plex Mono", monospace;
+.project-archive__heading h3 {
+  max-width: 12ch;
+  margin: 0;
+  font-size: clamp(36px, 4.8vw, 68px);
+  line-height: 0.95;
+  letter-spacing: -0.055em;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
 }
 
-.more-work__list strong {
-  font-size: 19px;
-  letter-spacing: -0.02em;
+.project-archive__heading > p {
+  max-width: 48ch;
+  margin: 3px 0 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+
+.project-card {
+  min-width: 0;
+  background: var(--paper);
+}
+
+.project-card > img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: var(--ink);
+}
+
+.project-card__body {
+  padding: clamp(25px, 3vw, 42px);
+}
+
+.project-card__meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  color: var(--muted);
+  font: 500 10px/1.3 "IBM Plex Mono", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+}
+
+.project-card h3 {
+  margin: 32px 0 13px;
+  font-size: clamp(28px, 3vw, 43px);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+
+.project-card__body > p {
+  margin: 0;
+  color: #4f524c;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.project-card ul,
+.experience-copy ul,
+.expertise-grid ul {
+  margin: 24px 0 0;
+  padding-left: 19px;
+  color: #60635c;
+}
+
+.project-card li,
+.experience-copy li,
+.expertise-grid li {
+  margin-bottom: 10px;
+  padding-left: 5px;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.project-card li::marker,
+.experience-copy li::marker,
+.expertise-grid li::marker {
+  color: #728d00;
+}
+
+.project-card footer {
+  margin-top: 30px;
+  padding-top: 17px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font: 500 10px/1.4 "IBM Plex Mono", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.behance-cta {
+  margin-top: 1px;
+  padding: 32px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+}
+
+.behance-cta p {
+  margin: 9px 0 0;
+  font-size: 20px;
+  letter-spacing: -0.025em;
 }
 
 .experience-list {
@@ -650,12 +726,16 @@ img {
   text-transform: uppercase;
 }
 
-.experience-list article > p {
+.experience-copy > p {
   max-width: 60ch;
   margin: 3px 0 0;
   color: #4e514b;
   font-size: 16px;
   line-height: 1.55;
+}
+
+.experience-copy ul {
+  max-width: 68ch;
 }
 
 .expertise {
@@ -664,19 +744,16 @@ img {
 
 .expertise-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  border: 1px solid var(--line);
+  background: var(--line);
 }
 
 .expertise-grid article {
-  min-height: 250px;
-  padding: 26px;
-  border-right: 1px solid var(--line);
-}
-
-.expertise-grid article:last-child {
-  border-right: 0;
+  min-height: 350px;
+  padding: 32px;
+  background: var(--paper-deep);
 }
 
 .expertise-grid article > span {
@@ -685,8 +762,8 @@ img {
 }
 
 .expertise-grid h3 {
-  margin: 56px 0 12px;
-  font-size: 23px;
+  margin: 45px 0 12px;
+  font-size: 25px;
   letter-spacing: -0.04em;
 }
 
@@ -695,24 +772,6 @@ img {
   color: #565950;
   font-size: 14px;
   line-height: 1.55;
-}
-
-.education-line {
-  padding: 30px 0 0;
-  display: grid;
-  grid-template-columns: 0.5fr 1fr auto;
-  align-items: baseline;
-  gap: 30px;
-}
-
-.education-line strong {
-  font-size: 20px;
-}
-
-.education-line > span:last-child {
-  color: var(--muted);
-  font: 400 11px/1.4 "IBM Plex Mono", monospace;
-  text-transform: uppercase;
 }
 
 .contact {
@@ -1031,12 +1090,12 @@ img {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .expertise-grid article:nth-child(2) {
-    border-right: 0;
+  .project-archive__heading {
+    grid-template-columns: 0.35fr 1fr;
   }
 
-  .expertise-grid article:nth-child(-n + 2) {
-    border-bottom: 1px solid var(--line);
+  .project-archive__heading > p {
+    grid-column: 2;
   }
 
   .case-overview {
@@ -1212,23 +1271,19 @@ img {
     height: 42px;
   }
 
-  .more-work {
+  .project-archive__heading,
+  .project-grid {
     grid-template-columns: 1fr;
-    gap: 38px;
   }
 
-  .more-work__list a {
-    min-height: 88px;
-    grid-template-columns: 32px 1fr 20px;
+  .project-archive__heading > p {
+    grid-column: 1;
   }
 
-  .more-work__list small {
-    grid-column: 2;
-  }
-
-  .more-work__list svg {
-    grid-column: 3;
-    grid-row: 1 / span 2;
+  .project-card footer,
+  .behance-cta {
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .experience-list article {
@@ -1241,20 +1296,8 @@ img {
     grid-template-columns: 1fr;
   }
 
-  .expertise-grid article,
-  .expertise-grid article:nth-child(2) {
-    min-height: 210px;
-    border-right: 0;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .expertise-grid article:last-child {
-    border-bottom: 0;
-  }
-
-  .education-line {
-    grid-template-columns: 1fr;
-    gap: 10px;
+  .expertise-grid article {
+    min-height: 0;
   }
 
   .contact {
