@@ -52,13 +52,16 @@ try {
   const workHeading = desktop.locator("#work h2");
   await workHeading.waitFor({ state: "visible" });
   check("case study return path", (await workHeading.innerText()).toLowerCase().includes("highlights"));
-  check("ten detailed project cards", (await desktop.locator(".project-card").count()) === 10);
+  check("thirteen detailed project cards", (await desktop.locator(".project-card").count()) === 13);
   check("project archive heading simplified", await desktop.getByRole("heading", { name: "Projects", exact: true }).isVisible());
   const archiveLeft = await desktop.locator("#project-archive").evaluate((element) => element.getBoundingClientRect().left);
   const archiveHeadingLeft = await desktop.getByRole("heading", { name: "Projects", exact: true }).evaluate((element) => element.getBoundingClientRect().left);
   check("project archive heading left aligned", Math.abs(archiveLeft - archiveHeadingLeft) < 2, `${archiveLeft} / ${archiveHeadingLeft}`);
   check("Invasion squad multiplayer copy", (await desktop.getByText(/squad-based shooter/i).count()) > 0);
   check("advanced motion matching title", (await desktop.getByRole("heading", { name: "Advanced Motion Matching Setup" }).count()) === 1);
+  check("C++ and Blueprint archive project", (await desktop.getByRole("heading", { name: "C++ / Blueprint Gameplay Systems" }).count()) === 1);
+  check("Fireworks archive project", (await desktop.getByRole("heading", { name: "Fireworks System" }).count()) === 1);
+  check("Avatar archive project", (await desktop.getByRole("heading", { name: "Avatar System" }).count()) === 1);
   check("section numbering removed", (await desktop.locator(".section-index").count()) === 0);
   check("expertise panel numbering removed", (await desktop.locator(".expertise-grid article > span").count()) === 0);
   check("recruiter proof removed", (await desktop.getByText("Recruiter proof", { exact: true }).count()) === 0);
@@ -74,6 +77,9 @@ try {
   await desktop.locator("#project-archive").evaluate((element) => element.scrollIntoView({ block: "start" }));
   await desktop.waitForTimeout(500);
   await desktop.screenshot({ path: "qa/implementation-project-archive.png", fullPage: false });
+  await desktop.getByRole("heading", { name: "Fireworks System" }).scrollIntoViewIfNeeded();
+  await desktop.waitForTimeout(250);
+  await desktop.screenshot({ path: "qa/implementation-new-projects.png", fullPage: false });
   await desktop.locator("#experience").evaluate((element) => element.scrollIntoView({ block: "start" }));
   await desktop.waitForTimeout(250);
   await desktop.screenshot({ path: "qa/implementation-experience.png", fullPage: false });

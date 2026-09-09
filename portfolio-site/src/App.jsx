@@ -52,8 +52,8 @@ const projects = [
     title: "Synchronized worlds at scale",
     description:
       "EOS sessions, dedicated-server flows, replication, RPCs, squads, achievements, and synchronized interaction built for browser-delivered Unreal experiences.",
-    image: `${base}assets/project-multiplayer-v2.png`,
-    alt: "Synchronized player avatars interacting inside a large multiplayer virtual concert",
+    image: `${base}assets/project-multiplayer-v3.jpg`,
+    alt: "Two player avatars entering a shared outdoor virtual concert",
     role: "Multiplayer Developer",
     tech: "EOS · Replication · RPCs",
     href: "#project-archive",
@@ -113,8 +113,8 @@ const projectArchive = [
     index: "03",
     title: "Multiplayer Concert World",
     category: "Online Systems / Real-Time",
-    image: `${base}assets/project-multiplayer-v2.png`,
-    alt: "Large-scale multiplayer concert with synchronized avatars and social interactions",
+    image: `${base}assets/project-multiplayer-v3.jpg`,
+    alt: "Two player avatars entering a shared outdoor virtual concert",
     summary:
       "A browser-delivered UE5 concert experience combining synchronized players, high-density crowds, live interaction, and cinematic performance systems.",
     details: [
@@ -127,10 +127,26 @@ const projectArchive = [
   },
   {
     index: "04",
+    title: "C++ / Blueprint Gameplay Systems",
+    category: "Gameplay Architecture · Scripting",
+    image: `${base}assets/project-gameplay-scripting.jpg`,
+    alt: "Gameplay interaction connected to structured C++ systems and a concise Blueprint graph",
+    summary:
+      "Hybrid gameplay architecture that keeps performance-critical foundations in C++ while exposing clean Blueprint APIs for rapid iteration.",
+    details: [
+      "Reusable components, subsystems, and Blueprint-callable C++ interfaces shared across production systems.",
+      "Gameplay interaction, state, events, validation, and debugging built around clear ownership and data flow.",
+      "Designer-friendly extension points reduce engineering bottlenecks without duplicating core logic.",
+    ],
+    role: "Gameplay Programming",
+    tech: "C++ · Blueprints · UE5",
+  },
+  {
+    index: "05",
     title: "AI NPC Systems",
     category: "Behavior Trees · Crowd Interaction",
-    image: `${base}assets/project-ai-npcs-v2.jpg`,
-    alt: "Interactive social NPCs following visible behavior paths around a player",
+    image: `${base}assets/project-ai-npcs-v3.jpg`,
+    alt: "Player observing NPCs naturally talking, sitting, and moving through a concert lounge",
     summary:
       "Smart NPCs that replace lightweight static crowd meshes only when interaction is needed, keeping large social spaces responsive.",
     details: [
@@ -142,7 +158,7 @@ const projectArchive = [
     tech: "Behavior Trees · Blueprints · C++",
   },
   {
-    index: "05",
+    index: "06",
     title: "Anim to Texture Plugin",
     category: "Nanite HISM · Editor Tools",
     image: `${base}assets/project-anim-texture-v2.jpg`,
@@ -158,7 +174,7 @@ const projectArchive = [
     tech: "Nanite · HISM · Vertex Animation",
   },
   {
-    index: "06",
+    index: "07",
     title: "Dynamic Media Playback",
     category: "Virtual Production · Blueprints",
     image: `${base}assets/project-dynamic-media-v2.jpg`,
@@ -174,11 +190,11 @@ const projectArchive = [
     tech: "Blueprints · Media Framework · DMI",
   },
   {
-    index: "07",
+    index: "08",
     title: "Advanced Crowd Manager",
     category: "Optimization · Runtime Systems",
-    image: `${base}assets/project-crowd-v2.jpg`,
-    alt: "Large optimized concert crowd with one instance becoming an interactive character",
+    image: `${base}assets/project-crowd-v3.jpg`,
+    alt: "Moderate concert crowd arranged with clear pathways and visible levels of character detail",
     summary:
       "A GPU-oriented crowd system that renders thousands of higher-quality characters while preserving runtime control and player interaction.",
     details: [
@@ -190,7 +206,7 @@ const projectArchive = [
     tech: "C++ · Nanite · HISM · GPU Animation",
   },
   {
-    index: "08",
+    index: "09",
     title: "Lighting Sequence Tools",
     category: "Concert Systems · Creative Tooling",
     image: `${base}assets/project-lighting-v2.jpg`,
@@ -206,7 +222,23 @@ const projectArchive = [
     tech: "UMG · Blueprints · Sequencer",
   },
   {
-    index: "09",
+    index: "10",
+    title: "Fireworks System",
+    category: "Concert Systems · Creative Tooling",
+    image: `${base}assets/project-fireworks.jpg`,
+    alt: "Three coordinated fireworks cues above a virtual concert stage",
+    summary:
+      "A reusable concert-fireworks system built for Moshpit Studio, giving creators control over timed launches and coordinated show moments.",
+    details: [
+      "Reusable firework actors and configurable launch patterns for virtual concert environments.",
+      "Sequence-driven timing connects controlled bursts to performance cues alongside the lighting workflow.",
+      "Designer-facing controls support rapid placement, preview, and iteration inside Unreal Engine.",
+    ],
+    role: "Tools & Gameplay",
+    tech: "Blueprints · VFX · Sequencer",
+  },
+  {
+    index: "11",
     title: "Advanced Motion Matching Setup",
     category: "Animation · IK Retargeting",
     image: `${base}assets/project-motion-matching-v2.jpg`,
@@ -222,7 +254,23 @@ const projectArchive = [
     tech: "Motion Matching · IK Rig · Chooser Tables",
   },
   {
-    index: "10",
+    index: "12",
+    title: "Avatar System",
+    category: "Character Systems · Customization",
+    image: `${base}assets/project-avatar-system.jpg`,
+    alt: "Player avatar beside a minimal outfit customization interface in a concert world",
+    summary:
+      "A player-avatar system for Moshpit's social concert world, covering character selection, customization, and consistent runtime presentation.",
+    details: [
+      "Modular avatar selection and customization flows connected to player-facing UMG.",
+      "Runtime character setup keeps appearance data consistent when entering shared concert spaces.",
+      "Built to work with animation, multiplayer presence, and browser-delivered Unreal experiences.",
+    ],
+    role: "Character Systems",
+    tech: "UMG · Blueprints · Multiplayer",
+  },
+  {
+    index: "13",
     title: "Unity JohnLemon",
     category: "Early Game Development Study",
     image: `${base}assets/project-unity-johnlemon-v2.jpg`,
@@ -416,7 +464,7 @@ function MainPortfolio() {
         </section>
 
         <section className="work section" id="work">
-          <SectionHeading title="Highlights" note="Four standout systems. Ten complete breakdowns." />
+          <SectionHeading title="Highlights" note="Four standout systems. Thirteen complete breakdowns." />
 
           <div className="project-showcase">
             <div className="project-tabs" role="tablist" aria-label="Featured projects">
