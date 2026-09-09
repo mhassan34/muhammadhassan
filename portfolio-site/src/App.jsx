@@ -289,8 +289,8 @@ const projectArchive = [
     index: "14",
     title: "EOS Session & Dedicated Server Framework",
     category: "Multiplayer Architecture · Online Services",
-    image: `${base}assets/project-eos-dedicated-server.jpg`,
-    alt: "Four-player tactical squad beside a minimal server browser in a pre-match lobby",
+    image: `${base}assets/project-eos-dedicated-server-v3.jpg`,
+    alt: "Three tactical squad silhouettes against a restrained red multiplayer key-art background",
     summary:
       "A reusable Unreal Engine online foundation connecting dedicated servers, EOS sessions, replicated gameplay, and player-facing UMG flows.",
     details: [
