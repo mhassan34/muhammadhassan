@@ -26,14 +26,18 @@ try {
 
   await desktop.goto(origin, { waitUntil: "networkidle" });
   check("homepage heading", (await desktop.locator("h1").innerText()).toLowerCase().includes("muhammad"));
+  check("pixel developer accent", (await desktop.locator(".pixel-developer img").count()) === 1);
   await desktop.screenshot({ path: "qa/implementation-home-v4.png", fullPage: false });
-  check("three featured project tabs", (await desktop.locator(".project-tab").count()) === 3);
+  check("four featured project tabs", (await desktop.locator(".project-tab").count()) === 4);
 
   await desktop.getByRole("tab", { name: /UMG/ }).click();
-  check("UMG tab interaction", await desktop.getByRole("heading", { name: "Shipping-ready interfaces" }).isVisible());
+  check("UMG tab interaction", await desktop.getByRole("heading", { name: "Squad-ready UI and online systems" }).isVisible());
 
   await desktop.getByRole("tab", { name: /MULTIPLAYER/ }).click();
   check("Multiplayer tab interaction", await desktop.getByRole("heading", { name: "Synchronized worlds at scale" }).isVisible());
+
+  await desktop.getByRole("tab", { name: /C\+\+ \/ BLUEPRINTS/ }).click();
+  check("C++ and Blueprints highlight", await desktop.getByRole("heading", { name: "Systems designers can extend" }).isVisible());
 
   await desktop.getByRole("tab", { name: /SPLAT/ }).click();
   await desktop.getByRole("link", { name: /Read case study/ }).click();
@@ -50,6 +54,11 @@ try {
   check("case study return path", (await workHeading.innerText()).toLowerCase().includes("highlights"));
   check("ten detailed project cards", (await desktop.locator(".project-card").count()) === 10);
   check("project archive heading simplified", await desktop.getByRole("heading", { name: "Projects", exact: true }).isVisible());
+  const archiveLeft = await desktop.locator("#project-archive").evaluate((element) => element.getBoundingClientRect().left);
+  const archiveHeadingLeft = await desktop.getByRole("heading", { name: "Projects", exact: true }).evaluate((element) => element.getBoundingClientRect().left);
+  check("project archive heading left aligned", Math.abs(archiveLeft - archiveHeadingLeft) < 2, `${archiveLeft} / ${archiveHeadingLeft}`);
+  check("Invasion squad multiplayer copy", (await desktop.getByText(/squad-based shooter/i).count()) > 0);
+  check("advanced motion matching title", (await desktop.getByRole("heading", { name: "Advanced Motion Matching Setup" }).count()) === 1);
   check("section numbering removed", (await desktop.locator(".section-index").count()) === 0);
   check("expertise panel numbering removed", (await desktop.locator(".expertise-grid article > span").count()) === 0);
   check("recruiter proof removed", (await desktop.getByText("Recruiter proof", { exact: true }).count()) === 0);

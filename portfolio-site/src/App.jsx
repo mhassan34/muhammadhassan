@@ -19,13 +19,13 @@ const projects = [
     index: "01",
     short: "UMG",
     eyebrow: "UI / TOOLS",
-    title: "Shipping-ready interfaces",
+    title: "Squad-ready UI and online systems",
     description:
-      "A complete Unreal Engine interface system spanning server browsing, settings, controls, statistics, loadouts, player actions, training flows, and the in-game HUD.",
-    image: `${base}assets/project-umg-v2.png`,
-    alt: "Multiplayer festival interface system showing server browser, loadout, and in-game HUD",
-    role: "UI Engineering",
-    tech: "UMG · C++ · Blueprints",
+      "Invasion is a squad-based multiplayer shooter where I develop connected UMG flows and Epic Online Services features—from sessions and squads to replicated player-facing systems.",
+    image: `${base}assets/project-invasion-v3.jpg`,
+    alt: "Four-player tactical squad advancing through a multiplayer shooter map with connected HUD and session indicators",
+    role: "UMG & Multiplayer Developer",
+    tech: "UMG · EOS · C++ · Blueprints",
     href: "#project-archive",
     action: "See full breakdown",
   },
@@ -59,24 +59,39 @@ const projects = [
     href: "#project-archive",
     action: "See full breakdown",
   },
+  {
+    id: "gameplay-scripting",
+    index: "04",
+    short: "C++ / BLUEPRINTS",
+    eyebrow: "GAMEPLAY / ARCHITECTURE",
+    title: "Systems designers can extend",
+    description:
+      "Hybrid Unreal Engine architecture that puts performance-critical foundations in C++ and exposes clean Blueprint APIs for fast gameplay iteration, interaction, tools, and debugging.",
+    image: `${base}assets/project-gameplay-scripting.jpg`,
+    alt: "Gameplay interaction connected to structured C++ systems and a concise Blueprint graph",
+    role: "Gameplay Programmer",
+    tech: "C++ · Blueprints · Components",
+    href: "#expertise",
+    action: "Explore expertise",
+  },
 ];
 
 const projectArchive = [
   {
     index: "01",
     title: "Invasion Multiplayer UI",
-    category: "UMG / UI Engineering",
-    image: `${base}assets/project-umg-v2.png`,
-    alt: "Production-ready multiplayer UI system with server browser, loadout, and HUD",
+    category: "UMG / Multiplayer / EOS",
+    image: `${base}assets/project-invasion-v3.jpg`,
+    alt: "Tactical four-player squad with a production multiplayer HUD and online status indicators",
     summary:
-      "Designed and implemented a connected interface system for a multiplayer game, covering the complete path from server discovery to in-game HUD.",
+      "Ongoing UMG and multiplayer development for a squad-based shooter, connecting every player-facing flow to real Epic Online Services and replicated game state.",
     details: [
-      "Server browser, filters, settings, key bindings, statistics, training, loadouts, player options, and HUD flows.",
-      "Reusable UMG widgets, customizable controls, and navigation implemented directly in Unreal Engine 5.",
-      "UI logic connected to gameplay and backend data instead of remaining a visual-only prototype.",
+      "Session creation, discovery, joining, leaving, server browsing, squad formation, and dedicated-server flows through Epic Online Services.",
+      "Reusable UMG for settings, key bindings, statistics, training, loadouts, player options, squad status, objectives, and the in-game HUD.",
+      "Replicated gameplay state, RPC-driven interactions, achievements, chat, voice, and resilient UI connected to live online state.",
     ],
-    role: "UI Engineering",
-    tech: "UMG · C++ · Blueprints",
+    role: "UMG & Multiplayer Development",
+    tech: "UMG · EOS · C++ · Blueprints",
   },
   {
     index: "02",
@@ -114,8 +129,8 @@ const projectArchive = [
     index: "04",
     title: "AI NPC Systems",
     category: "Behavior Trees · Crowd Interaction",
-    image: `${base}assets/project-ai-npcs.png`,
-    alt: "Unreal Engine Behavior Tree for interactive AI NPCs",
+    image: `${base}assets/project-ai-npcs-v2.jpg`,
+    alt: "Interactive social NPCs following visible behavior paths around a player",
     summary:
       "Smart NPCs that replace lightweight static crowd meshes only when interaction is needed, keeping large social spaces responsive.",
     details: [
@@ -130,8 +145,8 @@ const projectArchive = [
     index: "05",
     title: "Anim to Texture Plugin",
     category: "Nanite HISM · Editor Tools",
-    image: `${base}assets/project-anim-texture.png`,
-    alt: "Unreal Engine material graph for a Nanite animation-to-texture crowd plugin",
+    image: `${base}assets/project-anim-texture-v2.jpg`,
+    alt: "Concert crowd transformed through animation textures into optimized Nanite instances",
     summary:
       "An updated animation-to-texture plugin created specifically for high-quality Nanite HISM crowds and practical artist workflows.",
     details: [
@@ -146,8 +161,8 @@ const projectArchive = [
     index: "06",
     title: "Dynamic Media Playback",
     category: "Virtual Production · Blueprints",
-    image: `${base}assets/project-dynamic-media.png`,
-    alt: "Blueprint graph for dynamic Unreal Engine media playback",
+    image: `${base}assets/project-dynamic-media-v2.jpg`,
+    alt: "Virtual production LED walls connected through a runtime media and material pipeline",
     summary:
       "A Blueprint-only runtime media system for changing content on screens, props, LED walls, and backdrops during virtual-production shots.",
     details: [
@@ -162,8 +177,8 @@ const projectArchive = [
     index: "07",
     title: "Advanced Crowd Manager",
     category: "Optimization · Runtime Systems",
-    image: `${base}assets/project-crowd.png`,
-    alt: "Dense real-time crowd rendered with Unreal Engine Nanite instances",
+    image: `${base}assets/project-crowd-v2.jpg`,
+    alt: "Large optimized concert crowd with one instance becoming an interactive character",
     summary:
       "A GPU-oriented crowd system that renders thousands of higher-quality characters while preserving runtime control and player interaction.",
     details: [
@@ -178,8 +193,8 @@ const projectArchive = [
     index: "08",
     title: "Lighting Sequence Tools",
     category: "Concert Systems · Creative Tooling",
-    image: `${base}assets/project-lighting.png`,
-    alt: "Unreal Engine concert-lighting editor and stage preview",
+    image: `${base}assets/project-lighting-v2.jpg`,
+    alt: "Concert stage lighting controlled by an artist-facing sequence editor",
     summary:
       "An artist-facing system for placing concert lights, authoring repeatable lighting sequences, and previewing complex stage behavior.",
     details: [
@@ -192,10 +207,10 @@ const projectArchive = [
   },
   {
     index: "09",
-    title: "Motion Matching Setup",
+    title: "Advanced Motion Matching Setup",
     category: "Animation · IK Retargeting",
-    image: `${base}assets/project-motion-matching.png`,
-    alt: "Avaturn character rig and animation retargeting setup",
+    image: `${base}assets/project-motion-matching-v2.jpg`,
+    alt: "Character moving through matched locomotion and traversal poses with IK and state-selection overlays",
     summary:
       "A complete Avaturn character integration with custom IK retargeting, motion-matched locomotion, combat, traversal, and AI movement.",
     details: [
@@ -210,8 +225,8 @@ const projectArchive = [
     index: "10",
     title: "Unity JohnLemon",
     category: "Early Game Development Study",
-    image: `${base}assets/project-unity-johnlemon.png`,
-    alt: "Top-down Unity John Lemon haunted-house game scene",
+    image: `${base}assets/project-unity-johnlemon-v2.jpg`,
+    alt: "Stylized yellow protagonist navigating a haunted house while avoiding a ghost patrol",
     summary:
       "An earlier Unity project focused on building a complete playable scene and strengthening core game-development fundamentals.",
     details: [
@@ -386,15 +401,22 @@ function MainPortfolio() {
             </div>
           </div>
 
-          <div className="hero__statement" aria-hidden="true">
-            <span>Real projects</span>
-            <span>Real worlds</span>
-            <span>Built in Unreal</span>
+          <div className="hero__playground">
+            <div className="pixel-developer" aria-label="Pixel-art game developer firing a playful sci-fi blaster">
+              <img src={`${base}assets/pixel-developer.png`} alt="" />
+              <span className="pixel-developer__flash" aria-hidden="true" />
+              <span className="pixel-developer__shot" aria-hidden="true" />
+            </div>
+            <div className="hero__statement" aria-hidden="true">
+              <span>Real projects</span>
+              <span>Real worlds</span>
+              <span>Built in Unreal</span>
+            </div>
           </div>
         </section>
 
         <section className="work section" id="work">
-          <SectionHeading title="Highlights" note="Three flagship systems. Ten complete breakdowns." />
+          <SectionHeading title="Highlights" note="Four standout systems. Ten complete breakdowns." />
 
           <div className="project-showcase">
             <div className="project-tabs" role="tablist" aria-label="Featured projects">
