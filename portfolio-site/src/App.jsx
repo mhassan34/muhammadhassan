@@ -285,6 +285,22 @@ const projectArchive = [
     role: "Gameplay Study",
     tech: "Unity · C# · Scene Logic",
   },
+  {
+    index: "14",
+    title: "EOS Session & Dedicated Server Framework",
+    category: "Multiplayer Architecture · Online Services",
+    image: `${base}assets/project-eos-dedicated-server.jpg`,
+    alt: "Four-player tactical squad beside a minimal server browser in a pre-match lobby",
+    summary:
+      "A reusable Unreal Engine online foundation connecting dedicated servers, EOS sessions, replicated gameplay, and player-facing UMG flows.",
+    details: [
+      "Session creation, discovery, server browsing, joining, leaving, and client transition flows through Epic Online Services.",
+      "Dedicated-server architecture with replicated gameplay state and RPC-driven player interactions.",
+      "Clear UI and networking boundaries keep menus synchronized with real online state in an Unreal Engine source build.",
+    ],
+    role: "Multiplayer Development",
+    tech: "EOS · Dedicated Servers · Replication · RPCs",
+  },
 ];
 
 const experience = [
@@ -464,7 +480,7 @@ function MainPortfolio() {
         </section>
 
         <section className="work section" id="work">
-          <SectionHeading title="Highlights" note="Four standout systems. Thirteen complete breakdowns." />
+          <SectionHeading title="Highlights" note="Four standout systems. Fourteen complete breakdowns." />
 
           <div className="project-showcase">
             <div className="project-tabs" role="tablist" aria-label="Featured projects">
