@@ -30,6 +30,20 @@ try {
   await desktop.screenshot({ path: "qa/implementation-home-v4.png", fullPage: false });
   check("four featured project tabs", (await desktop.locator(".project-tab").count()) === 4);
 
+  await desktop.evaluate(() => { document.documentElement.style.scrollBehavior = "auto"; });
+  const navPositions = {};
+  for (const [label, id] of [["Projects", "work"], ["Experience", "experience"], ["Contact", "contact"]]) {
+    await desktop.getByRole("navigation", { name: "Primary navigation" }).getByRole("link", { name: label, exact: true }).click();
+    await desktop.waitForFunction((targetId) => window.location.hash === `#${targetId}`, id);
+    await desktop.waitForTimeout(80);
+    navPositions[id] = await desktop.evaluate(() => window.scrollY);
+    check(`${label} navigation leaves page top`, navPositions[id] > 100, `${navPositions[id]}`);
+  }
+  check("section navigation follows page order", navPositions.work < navPositions.experience && navPositions.experience < navPositions.contact, JSON.stringify(navPositions));
+  await desktop.getByRole("navigation", { name: "Primary navigation" }).getByRole("link", { name: "Intro", exact: true }).click();
+  await desktop.waitForTimeout(80);
+  check("Intro navigation returns to top", (await desktop.evaluate(() => window.scrollY)) < 5);
+
   await desktop.getByRole("tab", { name: /UMG/ }).click();
   check("UMG tab interaction", await desktop.getByRole("heading", { name: "Squad-ready UI and online systems" }).isVisible());
 

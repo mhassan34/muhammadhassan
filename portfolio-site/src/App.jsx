@@ -775,10 +775,26 @@ export function App() {
 
   useEffect(() => {
     const handleHash = () => {
-      setIsCaseStudy(window.location.hash === "#directsplat");
-      window.scrollTo({ top: 0, behavior: "auto" });
+      const hash = window.location.hash;
+      const nextIsCaseStudy = hash === "#directsplat";
+      setIsCaseStudy(nextIsCaseStudy);
+
+      if (nextIsCaseStudy) {
+        window.scrollTo({ top: 0, behavior: "auto" });
+        return;
+      }
+
+      const targetId = hash.slice(1);
+      if (!targetId) return;
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          document.getElementById(targetId)?.scrollIntoView({ block: "start", behavior: "auto" });
+        });
+      });
     };
     window.addEventListener("hashchange", handleHash);
+    handleHash();
     return () => window.removeEventListener("hashchange", handleHash);
   }, []);
 
