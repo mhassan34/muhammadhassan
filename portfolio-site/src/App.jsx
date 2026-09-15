@@ -374,7 +374,7 @@ function SectionHeading({ title, note }) {
 
 function DirectSplatMedia() {
   const [mediaIndex, setMediaIndex] = useState(0);
-  const [paused, setPaused] = useState(() => window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  const reducedMotion = useMemo(() => window.matchMedia("(prefers-reduced-motion: reduce)").matches, []);
   const videoRef = useRef(null);
   const gestureRef = useRef(null);
 
@@ -382,13 +382,13 @@ function DirectSplatMedia() {
     const video = videoRef.current;
     if (!video) return;
     const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting && !paused) video.play().catch(() => {});
+      if (entry.isIntersecting && !reducedMotion) video.play().catch(() => {});
       else video.pause();
     }, { threshold: 0.05 });
-    if (paused) video.pause();
+    if (reducedMotion) video.pause();
     observer.observe(video);
     return () => observer.disconnect();
-  }, [mediaIndex, paused]);
+  }, [mediaIndex, reducedMotion]);
 
   const moveMedia = () => setMediaIndex((current) => 1 - current);
 
@@ -426,7 +426,7 @@ function DirectSplatMedia() {
           src={`${base}assets/directsplat-demo.mp4`}
           poster={`${base}assets/directsplat-demo-poster.jpg`}
           aria-label="DirectSplat demo: snowy exterior, industrial interior, and canal environment"
-          autoPlay={!paused}
+          autoPlay={!reducedMotion}
           muted
           loop
           playsInline
@@ -436,10 +436,8 @@ function DirectSplatMedia() {
         <img src={`${base}assets/project-splat-v2.png`} alt="DirectSplat capture-to-point-cloud pipeline" draggable={false} />
       )}
       <div className="directsplat-media__controls">
-        <button type="button" onClick={moveMedia} aria-label="Previous DirectSplat media"><ArrowLeft size={18} /></button>
-        <span aria-live="polite">{mediaIndex === 0 ? "Video 1 / 2" : "Image 2 / 2"}</span>
-        <button type="button" onClick={moveMedia} aria-label="Next DirectSplat media"><ArrowRight size={18} /></button>
-        {mediaIndex === 0 && <button type="button" onClick={() => setPaused((current) => !current)} aria-label={paused ? "Play DirectSplat video" : "Pause DirectSplat video"}>{paused ? "Play" : "Pause"}</button>}
+        <button type="button" onClick={moveMedia} aria-label="Previous DirectSplat media"><ArrowLeft size={28} /></button>
+        <button type="button" onClick={moveMedia} aria-label="Next DirectSplat media"><ArrowRight size={28} /></button>
       </div>
     </div>
   );
@@ -572,7 +570,7 @@ function MainPortfolio() {
             </div>
 
             <article className="project-panel" id="project-panel" role="tabpanel" key={project.id}>
-              {project.id === "splat" ? <DirectSplatMedia /> : <img src={project.image} alt={project.alt} />}
+              <img src={project.image} alt={project.alt} />
               <div className="project-panel__copy">
                 <span className="eyebrow">{project.eyebrow}</span>
                 <h3>{project.title}</h3>

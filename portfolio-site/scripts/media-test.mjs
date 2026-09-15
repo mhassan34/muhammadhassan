@@ -15,23 +15,19 @@ try {
   await page.goto(origin, { waitUntil: "networkidle" });
   await page.evaluate(() => { document.documentElement.style.scrollBehavior = "auto"; });
   await page.getByRole("tab", { name: "SPLAT", exact: true }).click();
-  const gallery = page.locator(".project-panel .directsplat-media");
+  check("Highlights keeps a single image", await page.locator(".project-panel > img").count() === 1 && await page.locator(".project-panel .directsplat-media").count() === 0);
+  const gallery = page.locator(".project-card .directsplat-media");
   await gallery.scrollIntoViewIfNeeded();
   const video = gallery.locator("video");
   await page.waitForFunction(() => {
-    const video = document.querySelector(".project-panel video");
+    const video = document.querySelector(".project-card video");
     return video?.readyState >= 2 && !video.paused && video.currentTime > 0.1;
   });
   check("12-second muted inline autoplay video", await video.evaluate((v) => v.duration >= 10 && v.duration <= 15 && v.muted && v.loop && v.playsInline));
   await video.evaluate((v) => { v.currentTime = v.duration - 0.25; });
   await page.waitForTimeout(900);
   check("video actually loops", await video.evaluate((v) => v.currentTime < 2 && !v.paused));
-  await gallery.getByRole("button", { name: "Pause DirectSplat video" }).click();
-  await page.waitForTimeout(150);
-  check("pause control", await video.evaluate((v) => v.paused));
-  await gallery.getByRole("button", { name: "Play DirectSplat video" }).click();
-  await page.waitForTimeout(150);
-  check("play control", await video.evaluate((v) => !v.paused));
+  check("only two plain arrows", await gallery.locator(".directsplat-media__controls").evaluate((controls) => controls.querySelectorAll("button").length === 2 && controls.textContent.trim() === "" && getComputedStyle(controls).backgroundColor === "rgba(0, 0, 0, 0)" && [...controls.querySelectorAll("button")].every((button) => getComputedStyle(button).backgroundColor === "rgba(0, 0, 0, 0)")));
   await page.screenshot({ path: "qa/directsplat-video-desktop.png" });
   await gallery.getByRole("button", { name: "Next DirectSplat media" }).click();
   await gallery.locator("img").evaluate((img) => img.decode());
@@ -48,11 +44,12 @@ try {
   mobile.on("pageerror", (error) => errors.push(error.message));
   await mobile.goto(origin, { waitUntil: "networkidle" });
   await mobile.evaluate(() => { document.documentElement.style.scrollBehavior = "auto"; });
-  const mobileGallery = mobile.locator(".project-panel .directsplat-media");
+  check("mobile Highlights has no gallery", await mobile.locator(".project-panel .directsplat-media").count() === 0);
+  const mobileGallery = mobile.locator(".project-card .directsplat-media");
   await mobileGallery.scrollIntoViewIfNeeded();
   const box = await mobileGallery.boundingBox();
   const session = await mobile.context().newCDPSession(mobile);
-  const y = box.y + box.height * 0.6;
+  const y = box.y + box.height * 0.75;
   const swipe = async (from, to) => {
     await session.send("Input.dispatchTouchEvent", { type: "touchStart", touchPoints: [{ x: from, y }] });
     for (let i = 1; i <= 8; i++) {
