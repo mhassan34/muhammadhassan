@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   ArrowLeft,
   ArrowRight,
@@ -372,6 +372,79 @@ function SectionHeading({ title, note }) {
   );
 }
 
+function DirectSplatMedia() {
+  const [mediaIndex, setMediaIndex] = useState(0);
+  const [paused, setPaused] = useState(() => window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  const videoRef = useRef(null);
+  const gestureRef = useRef(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !paused) video.play().catch(() => {});
+      else video.pause();
+    }, { threshold: 0.05 });
+    if (paused) video.pause();
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, [mediaIndex, paused]);
+
+  const moveMedia = () => setMediaIndex((current) => 1 - current);
+
+  return (
+    <div
+      className="directsplat-media"
+      role="region"
+      aria-label="DirectSplat media gallery"
+      aria-roledescription="carousel"
+      tabIndex={0}
+      onKeyDown={(event) => {
+        if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+          event.preventDefault();
+          moveMedia();
+        }
+      }}
+      onPointerDown={(event) => {
+        if (event.target.closest("button")) return;
+        gestureRef.current = { x: event.clientX, y: event.clientY };
+        event.currentTarget.setPointerCapture(event.pointerId);
+      }}
+      onPointerUp={(event) => {
+        const start = gestureRef.current;
+        gestureRef.current = null;
+        if (!start) return;
+        const dx = event.clientX - start.x;
+        const dy = event.clientY - start.y;
+        if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) moveMedia();
+      }}
+      onPointerCancel={() => { gestureRef.current = null; }}
+    >
+      {mediaIndex === 0 ? (
+        <video
+          ref={videoRef}
+          src={`${base}assets/directsplat-demo.mp4`}
+          poster={`${base}assets/directsplat-demo-poster.jpg`}
+          aria-label="DirectSplat demo: snowy exterior, industrial interior, and canal environment"
+          autoPlay={!paused}
+          muted
+          loop
+          playsInline
+          preload="metadata"
+        />
+      ) : (
+        <img src={`${base}assets/project-splat-v2.png`} alt="DirectSplat capture-to-point-cloud pipeline" draggable={false} />
+      )}
+      <div className="directsplat-media__controls">
+        <button type="button" onClick={moveMedia} aria-label="Previous DirectSplat media"><ArrowLeft size={18} /></button>
+        <span aria-live="polite">{mediaIndex === 0 ? "Video 1 / 2" : "Image 2 / 2"}</span>
+        <button type="button" onClick={moveMedia} aria-label="Next DirectSplat media"><ArrowRight size={18} /></button>
+        {mediaIndex === 0 && <button type="button" onClick={() => setPaused((current) => !current)} aria-label={paused ? "Play DirectSplat video" : "Pause DirectSplat video"}>{paused ? "Play" : "Pause"}</button>}
+      </div>
+    </div>
+  );
+}
+
 function MainPortfolio() {
   const [activeProject, setActiveProject] = useState(1);
   const [activeSection, setActiveSection] = useState("intro");
@@ -499,7 +572,7 @@ function MainPortfolio() {
             </div>
 
             <article className="project-panel" id="project-panel" role="tabpanel" key={project.id}>
-              <img src={project.image} alt={project.alt} />
+              {project.id === "splat" ? <DirectSplatMedia /> : <img src={project.image} alt={project.alt} />}
               <div className="project-panel__copy">
                 <span className="eyebrow">{project.eyebrow}</span>
                 <h3>{project.title}</h3>
@@ -537,7 +610,7 @@ function MainPortfolio() {
             <div className="project-grid">
               {projectArchive.map((item) => (
                 <article className="project-card" key={item.title}>
-                  <img src={item.image} alt={item.alt} loading="lazy" />
+                  {item.title === "DirectSplat" ? <DirectSplatMedia /> : <img src={item.image} alt={item.alt} loading="lazy" />}
                   <div className="project-card__body">
                     <div className="project-card__meta">
                       <span>{item.category}</span>
@@ -701,7 +774,7 @@ function DirectSplatCaseStudy() {
               <span><small>Focus</small>Capture · Optimize · Export</span>
             </div>
           </div>
-          <img src={`${base}assets/project-splat-v2.png`} alt="DirectSplat capture-to-point-cloud pipeline" />
+          <DirectSplatMedia />
         </section>
 
         <section className="case-section case-overview">
