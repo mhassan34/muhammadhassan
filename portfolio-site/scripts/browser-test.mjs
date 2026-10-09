@@ -66,7 +66,8 @@ try {
   const workHeading = desktop.locator("#work h2");
   await workHeading.waitFor({ state: "visible" });
   check("case study return path", (await workHeading.innerText()).toLowerCase().includes("highlights"));
-  check("fourteen detailed project cards", (await desktop.locator(".project-card").count()) === 14);
+  check("fifteen detailed project cards", (await desktop.locator(".project-card").count()) === 15);
+  check("Cereal Killer is first project", (await desktop.locator(".project-card h3").first().innerText()) === "Cereal Killer");
   check("project archive heading simplified", await desktop.getByRole("heading", { name: "Projects", exact: true }).isVisible());
   const archiveLeft = await desktop.locator("#project-archive").evaluate((element) => element.getBoundingClientRect().left);
   const archiveHeadingLeft = await desktop.getByRole("heading", { name: "Projects", exact: true }).evaluate((element) => element.getBoundingClientRect().left);

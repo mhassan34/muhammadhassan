@@ -79,6 +79,22 @@ const projects = [
 const projectArchive = [
   {
     index: "01",
+    title: "Cereal Killer",
+    category: "Multiplayer / Gameplay / Mobile",
+    image: `${base}assets/project-cereal-killer.jpg`,
+    alt: "Cereal Killer characters racing through a colorful cereal-themed obstacle course",
+    summary:
+      "A mobile-first multiplayer obstacle-racing prototype built in Unreal Engine 5.6, combining fast character movement, online parties, synchronized race rules, and playful customization.",
+    details: [
+      "Epic Online Services flows for public Quick Play, invite-only friend parties, readiness, synchronized countdowns, race timing, and results.",
+      "Server-authoritative C++ gameplay with replicated player state, validated movement actions, session chat, and reusable Blueprint obstacle bases.",
+      "Touch-ready controls, cereal-box character skins, Day and Night races, plus a separate replicated Endless Village course-generation experiment.",
+    ],
+    role: "Gameplay & Multiplayer Development",
+    tech: "UE5.6 · C++ · Blueprints · EOS",
+  },
+  {
+    index: "01",
     title: "Invasion Multiplayer UI",
     category: "UMG / Multiplayer / EOS",
     image: `${base}assets/project-invasion-v3.jpg`,
@@ -551,7 +567,7 @@ function MainPortfolio() {
         </section>
 
         <section className="work section" id="work">
-          <SectionHeading title="Highlights" note="Four standout systems. Fourteen complete breakdowns." />
+          <SectionHeading title="Highlights" note="Four standout systems. Fifteen complete breakdowns." />
 
           <div className="project-showcase">
             <div className="project-tabs" role="tablist" aria-label="Featured projects">
