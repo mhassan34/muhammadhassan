@@ -80,17 +80,27 @@ const projectArchive = [
   {
     index: "01",
     title: "Cereal Killer",
-    category: "Multiplayer / Gameplay / Mobile",
+    category: "Multiplayer / Gameplay / Windows + Android",
     image: `${base}assets/project-cereal-killer.jpg`,
     alt: "Cereal Killer characters racing through a colorful cereal-themed obstacle course",
     summary:
-      "A mobile-first multiplayer obstacle-racing prototype built in Unreal Engine 5.6, combining fast character movement, online parties, synchronized race rules, and playful customization.",
+      "An Unreal Engine 5.6 multiplayer obstacle-racing prototype targeting Android and Windows. It combines fast movement, online parties, synchronized race rules, and playful character customization.",
     details: [
       "Epic Online Services flows for public Quick Play, invite-only friend parties, readiness, synchronized countdowns, race timing, and results.",
       "Server-authoritative C++ gameplay with replicated player state, validated movement actions, session chat, and reusable Blueprint obstacle bases.",
       "Touch-ready controls, cereal-box character skins, Day and Night races, plus a separate replicated Endless Village course-generation experiment.",
     ],
     role: "Gameplay & Multiplayer Development",
+    downloads: [
+      {
+        label: "Android APK",
+        href: "https://github.com/mhassan34/CerealKiller/releases/latest/download/CerealKiller-Android.apk",
+      },
+      {
+        label: "Windows Build",
+        href: "https://github.com/mhassan34/CerealKiller/releases/latest/download/CerealKiller-Windows.zip",
+      },
+    ],
     tech: "UE5.6 · C++ · Blueprints · EOS",
   },
   {
@@ -631,9 +641,24 @@ function MainPortfolio() {
                     </div>
                     <h3>{item.title}</h3>
                     <p>{item.summary}</p>
+                    {item.downloads?.length > 0 && (
+                      <div className="project-card__downloads" aria-label={`${item.title} downloads`}>
+                        {item.downloads.map((download, index) => (
+                          <a
+                            className={`button ${index === 0 ? "button--accent" : "button--outline"}`}
+                            href={download.href}
+                            key={download.label}
+                          >
+                            <DownloadSimple size={16} aria-hidden="true" />
+                            {download.label}
+                          </a>
+                        ))}
+                      </div>
+                    )}
                     <ul>
                       {item.details.map((detail) => <li key={detail}>{detail}</li>)}
                     </ul>
+
                     <footer>
                       <span>{item.role}</span>
                       <span>{item.tech}</span>

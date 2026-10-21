@@ -645,6 +645,18 @@ img {
   font-size: 16px;
   line-height: 1.55;
 }
+.project-card__downloads {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.project-card__downloads .button {
+  min-height: 42px;
+  padding: 0 15px;
+  font-size: 10px;
+}
 
 .project-card ul,
 .experience-copy ul,
