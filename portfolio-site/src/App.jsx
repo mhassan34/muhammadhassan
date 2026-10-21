@@ -744,16 +744,7 @@ function MainPortfolio() {
               <strong>muhammed-hassan34</strong>
               <ArrowUpRight size={24} />
             </a>
-            <a
-              className="contact-link"
-              href="https://www.behance.net/muhammed-hassan"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <span>Behance</span>
-              <strong>muhammed-hassan</strong>
-              <ArrowUpRight size={24} />
-            </a>
+
             <a
               className="contact-link"
               href="https://www.upwork.com/freelancers/~0199e6bef182cf00b6?mp_source=share"
