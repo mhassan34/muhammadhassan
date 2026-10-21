@@ -13,7 +13,7 @@ Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts
 - Use the selected light "Recruiter Dossier" direction: warm white, near-black type, lime accent, thin rules, square imagery, generous whitespace.
 - Keep the information architecture simple and divided into clearly numbered sections with sticky navigation.
 - The first three featured projects, in order, are UMG, DirectSplat, and Multiplayer; DirectSplat is the flagship.
-- Project imagery should be polished, cohesive key art derived from Muhammad's real project screenshots rather than generic stock imagery.
+- Project imagery should use simple, grounded Unreal-style game scenes with restrained in-engine presentation; avoid glossy generic AI-looking stock art.
 - Recruiter conversion is the priority: email, LinkedIn, Behance, and downloadable CV must remain obvious and functional.
 - Keep the portfolio data primarily on-site: show all ten relevant Behance projects with substantive responsibilities and technical details, then place the Behance portfolio CTA after those breakdowns.
 - Expand Moshpit Studio and Skylla Studio experience while keeping the Fiverr entry concise.
