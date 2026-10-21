@@ -1,6 +1,6 @@
 # Generated project artwork
 
-Existing raster assets are stored in the public/assets directory. The new project SVGs are hand-built scene illustrations, kept simple and grounded in Unreal-style gameplay.
+Existing raster assets are stored in the public/assets directory. The project images were edited from their previous raster versions to simplify the composition while retaining each scene and making the result feel closer to a restrained Unreal Engine gameplay capture.
 
 ## `project-umg.png`
 
@@ -14,9 +14,9 @@ Create a cinematic 16:9 industrial restaurant interior transitioning from a phot
 
 Create a polished 16:9 Unreal Engine multiplayer shared-world scene at a virtual festival. Show a third-person female player in the lower-left foreground, a convincing crowd of networked participants, a large performance stage, and warm late-afternoon light. Keep the image cinematic and realistic, without UI, logos, or text.
 
-## Hand-built project scenes
+## Edited project scenes
 
-- project-multiplayer-world.svg — A shared-world concert stage and crowd.
-- project-gameplay-systems.svg — A third-person graybox gameplay test arena.
-- project-motion-matching.svg — Locomotion poses with trajectory and foot-contact guides.
-- project-avatar-customization.svg — Character previews beside customization controls.
+- project-multiplayer-world-edited.png — A shared-world concert stage and crowd.
+- project-gameplay-systems-edited.png — A third-person graybox gameplay test arena.
+- project-motion-matching-edited.png — Locomotion poses with trajectory and foot-contact guides.
+- project-avatar-system-edited.png — A single full-body preview with three outfit options in a restrained customization screen.

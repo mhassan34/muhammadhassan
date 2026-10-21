@@ -52,7 +52,7 @@ const projects = [
     title: "Synchronized worlds at scale",
     description:
       "EOS sessions, dedicated-server flows, replication, RPCs, squads, achievements, and synchronized interaction built for browser-delivered Unreal experiences.",
-    image: `${base}assets/project-multiplayer-world.svg`,
+    image: `${base}assets/project-multiplayer-world-edited.png`,
     alt: "Crowd facing a concert stage in a shared Unreal Engine world",
     role: "Multiplayer Developer",
     tech: "EOS · Replication · RPCs",
@@ -67,7 +67,7 @@ const projects = [
     title: "Systems designers can extend",
     description:
       "Hybrid Unreal Engine architecture that puts performance-critical foundations in C++ and exposes clean Blueprint APIs for fast gameplay iteration, interaction, tools, and debugging.",
-    image: `${base}assets/project-gameplay-systems.svg`,
+    image: `${base}assets/project-gameplay-systems-edited.png`,
     alt: "Third-person character testing gameplay interactions in a modular Unreal graybox arena",
     role: "Gameplay Programmer",
     tech: "C++ · Blueprints · Components",
@@ -139,7 +139,7 @@ const projectArchive = [
     index: "03",
     title: "Multiplayer Concert World",
     category: "Online Systems / Real-Time",
-    image: `${base}assets/project-multiplayer-world.svg`,
+    image: `${base}assets/project-multiplayer-world-edited.png`,
     alt: "Crowd facing a concert stage in a shared Unreal Engine world",
     summary:
       "A browser-delivered UE5 concert experience combining synchronized players, high-density crowds, live interaction, and cinematic performance systems.",
@@ -155,7 +155,7 @@ const projectArchive = [
     index: "04",
     title: "C++ / Blueprint Gameplay Systems",
     category: "Gameplay Architecture · Scripting",
-    image: `${base}assets/project-gameplay-systems.svg`,
+    image: `${base}assets/project-gameplay-systems-edited.png`,
     alt: "Third-person character testing gameplay interactions in a modular Unreal graybox arena",
     summary:
       "Hybrid gameplay architecture that keeps performance-critical foundations in C++ while exposing clean Blueprint APIs for rapid iteration.",
@@ -267,7 +267,7 @@ const projectArchive = [
     index: "11",
     title: "Advanced Motion Matching Setup",
     category: "Animation · IK Retargeting",
-    image: `${base}assets/project-motion-matching.svg`,
+    image: `${base}assets/project-motion-matching-edited.png`,
     alt: "Three locomotion poses with a motion-matching trajectory and foot-contact guides",
     summary:
       "A complete Avaturn character integration with custom IK retargeting, motion-matched locomotion, combat, traversal, and AI movement.",
@@ -283,8 +283,8 @@ const projectArchive = [
     index: "12",
     title: "Avatar System",
     category: "Character Systems · Customization",
-    image: `${base}assets/project-avatar-customization.svg`,
-    alt: "Character selection screen with three player avatar previews and customization controls",
+    image: `${base}assets/project-avatar-system-edited.png`,
+    alt: "Character customization screen with a full-body preview and three outfit options",
     summary:
       "A player-avatar system for Moshpit's social concert world, covering character selection, customization, and consistent runtime presentation.",
     details: [
