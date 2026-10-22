@@ -94,11 +94,11 @@ const projectArchive = [
     downloads: [
       {
         label: "Android APK",
-        href: "https://github.com/mhassan34/CerealKiller/releases/latest/download/CerealKiller-Android.apk",
+        href: "https://github.com/mhassan34/CerealKiller-Builds/releases/download/v1.0.0/CerealKiller-Android.apk",
       },
       {
         label: "Windows Build",
-        href: "https://github.com/mhassan34/CerealKiller/releases/latest/download/CerealKiller-Windows.zip",
+        href: "https://github.com/mhassan34/CerealKiller-Builds/releases/download/v1.0.0/CerealKiller-Windows.zip",
       },
     ],
     tech: "UE5.6 · C++ · Blueprints · EOS",
