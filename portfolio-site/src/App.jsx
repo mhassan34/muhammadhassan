@@ -120,6 +120,22 @@ const projectArchive = [
     tech: "UMG · EOS · C++ · Blueprints",
   },
   {
+    index: "03",
+    title: "EOS Session & Dedicated Server Framework",
+    category: "Multiplayer Architecture · Online Services",
+    image: `${base}assets/project-eos-dedicated-server-v3.jpg`,
+    alt: "Three tactical squad silhouettes against a restrained red multiplayer key-art background",
+    summary:
+      "A reusable Unreal Engine online foundation connecting dedicated servers, EOS sessions, replicated gameplay, and player-facing UMG flows.",
+    details: [
+      "Session creation, discovery, server browsing, joining, leaving, and client transition flows through Epic Online Services.",
+      "Dedicated-server architecture with replicated gameplay state and RPC-driven player interactions.",
+      "Clear UI and networking boundaries keep menus synchronized with real online state in an Unreal Engine source build.",
+    ],
+    role: "Multiplayer Development",
+    tech: "EOS · Dedicated Servers · Replication · RPCs",
+  },
+  {
     index: "02",
     title: "DirectSplat",
     category: "Gaussian Splatting / Plugin",
@@ -171,8 +187,8 @@ const projectArchive = [
     index: "05",
     title: "AI NPC Systems",
     category: "Behavior Trees · Crowd Interaction",
-    image: `${base}assets/project-ai-npcs-v4.jpg`,
-    alt: "Player observing NPCs naturally talking, sitting, and moving through a concert lounge",
+    image: `${base}assets/project-ai-npcs-v5.jpg`,
+    alt: "Illustrative Unreal Blueprint AI controller graph with patrol and movement nodes",
     summary:
       "Smart NPCs that replace lightweight static crowd meshes only when interaction is needed, keeping large social spaces responsive.",
     details: [
@@ -203,8 +219,8 @@ const projectArchive = [
     index: "07",
     title: "Dynamic Media Playback",
     category: "Virtual Production · Blueprints",
-    image: `${base}assets/project-dynamic-media-v3.jpg`,
-    alt: "Virtual production LED walls connected through a runtime media and material pipeline",
+    image: `${base}assets/project-dynamic-media-v4.jpg`,
+    alt: "Illustrative Unreal Blueprint graph connecting media playback and dynamic material nodes",
     summary:
       "A Blueprint-only runtime media system for changing content on screens, props, LED walls, and backdrops during virtual-production shots.",
     details: [
@@ -219,8 +235,8 @@ const projectArchive = [
     index: "08",
     title: "Advanced Crowd Manager",
     category: "Optimization · Runtime Systems",
-    image: `${base}assets/project-crowd-v4.jpg`,
-    alt: "Moderate concert crowd arranged with clear pathways and visible levels of character detail",
+    image: `${base}assets/project-crowd-v5.jpg`,
+    alt: "Illustrative HISM mannequin crowd on a plain Unreal editor test level",
     summary:
       "A GPU-oriented crowd system that renders thousands of higher-quality characters while preserving runtime control and player interaction.",
     details: [
@@ -267,8 +283,8 @@ const projectArchive = [
     index: "11",
     title: "Advanced Motion Matching Setup",
     category: "Animation · IK Retargeting",
-    image: `${base}assets/project-motion-matching-v4.jpg`,
-    alt: "Three locomotion poses with a motion-matching trajectory and foot-contact guides",
+    image: `${base}assets/project-motion-matching-v5.jpg`,
+    alt: "Skeletal mannequins in three locomotion poses with motion-matching trajectories and bone guides",
     summary:
       "A complete Avaturn character integration with custom IK retargeting, motion-matched locomotion, combat, traversal, and AI movement.",
     details: [
@@ -278,22 +294,6 @@ const projectArchive = [
     ],
     role: "Character Systems",
     tech: "Motion Matching · IK Rig · Chooser Tables",
-  },
-  {
-    index: "12",
-    title: "Avatar System",
-    category: "Character Systems · Customization",
-    image: `${base}assets/project-avatar-system-v4.jpg`,
-    alt: "Character customization screen with a full-body preview and three outfit options",
-    summary:
-      "A player-avatar system for Moshpit's social concert world, covering character selection, customization, and consistent runtime presentation.",
-    details: [
-      "Modular avatar selection and customization flows connected to player-facing UMG.",
-      "Runtime character setup keeps appearance data consistent when entering shared concert spaces.",
-      "Built to work with animation, multiplayer presence, and browser-delivered Unreal experiences.",
-    ],
-    role: "Character Systems",
-    tech: "UMG · Blueprints · Multiplayer",
   },
   {
     index: "13",
@@ -310,22 +310,6 @@ const projectArchive = [
     ],
     role: "Gameplay Study",
     tech: "Unity · C# · Scene Logic",
-  },
-  {
-    index: "14",
-    title: "EOS Session & Dedicated Server Framework",
-    category: "Multiplayer Architecture · Online Services",
-    image: `${base}assets/project-eos-dedicated-server-v3.jpg`,
-    alt: "Three tactical squad silhouettes against a restrained red multiplayer key-art background",
-    summary:
-      "A reusable Unreal Engine online foundation connecting dedicated servers, EOS sessions, replicated gameplay, and player-facing UMG flows.",
-    details: [
-      "Session creation, discovery, server browsing, joining, leaving, and client transition flows through Epic Online Services.",
-      "Dedicated-server architecture with replicated gameplay state and RPC-driven player interactions.",
-      "Clear UI and networking boundaries keep menus synchronized with real online state in an Unreal Engine source build.",
-    ],
-    role: "Multiplayer Development",
-    tech: "EOS · Dedicated Servers · Replication · RPCs",
   },
 ];
 
@@ -577,7 +561,7 @@ function MainPortfolio() {
         </section>
 
         <section className="work section" id="work">
-          <SectionHeading title="Highlights" note="Four standout systems. Fifteen complete breakdowns." />
+          <SectionHeading title="Highlights" note="Four standout systems. Fourteen complete breakdowns." />
 
           <div className="project-showcase">
             <div className="project-tabs" role="tablist" aria-label="Featured projects">

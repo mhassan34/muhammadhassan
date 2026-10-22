@@ -66,16 +66,18 @@ try {
   const workHeading = desktop.locator("#work h2");
   await workHeading.waitFor({ state: "visible" });
   check("case study return path", (await workHeading.innerText()).toLowerCase().includes("highlights"));
-  check("fifteen detailed project cards", (await desktop.locator(".project-card").count()) === 15);
+  check("fourteen detailed project cards", (await desktop.locator(".project-card").count()) === 14);
+  check("EOS is third project", (await desktop.locator(".project-card h3").nth(2).innerText()) === "EOS Session & Dedicated Server Framework");
   check("Cereal Killer is first project", (await desktop.locator(".project-card h3").first().innerText()) === "Cereal Killer");
   const cerealDownloads = await desktop.locator(".project-card").first().locator(".project-card__downloads a").evaluateAll((links) => links.map((link) => link.href));
   check("Cereal Killer uses public build links", cerealDownloads.length === 2 && cerealDownloads.every((href) => href.includes("/mhassan34/CerealKiller-Builds/releases/download/v1.0.0/")));
-  const refreshedCoverNames = ["project-invasion-v4.jpg", "project-multiplayer-world-v4.jpg", "project-gameplay-systems-v4.jpg", "project-ai-npcs-v4.jpg", "project-dynamic-media-v3.jpg", "project-crowd-v4.jpg", "project-motion-matching-v4.jpg", "project-avatar-system-v4.jpg"];
+  const refreshedCoverNames = ["project-invasion-v4.jpg", "project-multiplayer-world-v4.jpg", "project-gameplay-systems-v4.jpg", "project-ai-npcs-v5.jpg", "project-dynamic-media-v4.jpg", "project-crowd-v5.jpg", "project-motion-matching-v5.jpg"];
   for (const coverName of refreshedCoverNames) {
     await desktop.locator(`.project-card img[src$="${coverName}"]`).scrollIntoViewIfNeeded();
+    await desktop.locator(`.project-card img[src$="${coverName}"]`).evaluate((image) => image.decode());
   }
-  const refreshedProjectImages = await desktop.locator(".project-card img").evaluateAll((images) => images.filter((image) => /project-(invasion|multiplayer-world|gameplay-systems|ai-npcs|dynamic-media|crowd|motion-matching|avatar-system)-v[34]\.jpg$/.test(new URL(image.src).pathname) && image.complete && image.naturalWidth > 0).length);
-  check("eight Unreal-style project covers", refreshedProjectImages === 8, `${refreshedProjectImages}`);
+  const refreshedProjectImages = await desktop.locator(".project-card img").evaluateAll((images, names) => images.filter((image) => names.some((name) => image.src.endsWith(name)) && image.complete && image.naturalWidth > 0).length, refreshedCoverNames);
+  check("seven Unreal-style project covers", refreshedProjectImages === 7, `${refreshedProjectImages}`);
   check("project archive heading simplified", await desktop.getByRole("heading", { name: "Projects", exact: true }).isVisible());
   const archiveLeft = await desktop.locator("#project-archive").evaluate((element) => element.getBoundingClientRect().left);
   const archiveHeadingLeft = await desktop.getByRole("heading", { name: "Projects", exact: true }).evaluate((element) => element.getBoundingClientRect().left);
@@ -84,7 +86,7 @@ try {
   check("advanced motion matching title", (await desktop.getByRole("heading", { name: "Advanced Motion Matching Setup" }).count()) === 1);
   check("C++ and Blueprint archive project", (await desktop.getByRole("heading", { name: "C++ / Blueprint Gameplay Systems" }).count()) === 1);
   check("Fireworks archive project", (await desktop.getByRole("heading", { name: "Fireworks System" }).count()) === 1);
-  check("Avatar archive project", (await desktop.getByRole("heading", { name: "Avatar System" }).count()) === 1);
+  check("Avatar archive project removed", (await desktop.getByRole("heading", { name: "Avatar System", exact: true }).count()) === 0);
   check("EOS dedicated server archive project", (await desktop.getByRole("heading", { name: "EOS Session & Dedicated Server Framework" }).count()) === 1);
   check("section numbering removed", (await desktop.locator(".section-index").count()) === 0);
   check("expertise panel numbering removed", (await desktop.locator(".expertise-grid article > span").count()) === 0);
