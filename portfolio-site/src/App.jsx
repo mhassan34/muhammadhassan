@@ -107,7 +107,7 @@ const projectArchive = [
     index: "01",
     title: "Invasion Multiplayer UI",
     category: "UMG / Multiplayer / EOS",
-    image: `${base}assets/project-invasion-v3.jpg`,
+    image: `${base}assets/project-invasion-v4.jpg`,
     alt: "Tactical four-player squad with a production multiplayer HUD and online status indicators",
     summary:
       "Ongoing UMG and multiplayer development for a squad-based shooter, connecting every player-facing flow to real Epic Online Services and replicated game state.",
@@ -139,7 +139,7 @@ const projectArchive = [
     index: "03",
     title: "Multiplayer Concert World",
     category: "Online Systems / Real-Time",
-    image: `${base}assets/project-multiplayer-world-edited.png`,
+    image: `${base}assets/project-multiplayer-world-v4.jpg`,
     alt: "Crowd facing a concert stage in a shared Unreal Engine world",
     summary:
       "A browser-delivered UE5 concert experience combining synchronized players, high-density crowds, live interaction, and cinematic performance systems.",
@@ -155,7 +155,7 @@ const projectArchive = [
     index: "04",
     title: "C++ / Blueprint Gameplay Systems",
     category: "Gameplay Architecture · Scripting",
-    image: `${base}assets/project-gameplay-systems-edited.png`,
+    image: `${base}assets/project-gameplay-systems-v4.jpg`,
     alt: "Third-person character testing gameplay interactions in a modular Unreal graybox arena",
     summary:
       "Hybrid gameplay architecture that keeps performance-critical foundations in C++ while exposing clean Blueprint APIs for rapid iteration.",
@@ -171,7 +171,7 @@ const projectArchive = [
     index: "05",
     title: "AI NPC Systems",
     category: "Behavior Trees · Crowd Interaction",
-    image: `${base}assets/project-ai-npcs-v3.jpg`,
+    image: `${base}assets/project-ai-npcs-v4.jpg`,
     alt: "Player observing NPCs naturally talking, sitting, and moving through a concert lounge",
     summary:
       "Smart NPCs that replace lightweight static crowd meshes only when interaction is needed, keeping large social spaces responsive.",
@@ -203,7 +203,7 @@ const projectArchive = [
     index: "07",
     title: "Dynamic Media Playback",
     category: "Virtual Production · Blueprints",
-    image: `${base}assets/project-dynamic-media-v2.jpg`,
+    image: `${base}assets/project-dynamic-media-v3.jpg`,
     alt: "Virtual production LED walls connected through a runtime media and material pipeline",
     summary:
       "A Blueprint-only runtime media system for changing content on screens, props, LED walls, and backdrops during virtual-production shots.",
@@ -219,7 +219,7 @@ const projectArchive = [
     index: "08",
     title: "Advanced Crowd Manager",
     category: "Optimization · Runtime Systems",
-    image: `${base}assets/project-crowd-v3.jpg`,
+    image: `${base}assets/project-crowd-v4.jpg`,
     alt: "Moderate concert crowd arranged with clear pathways and visible levels of character detail",
     summary:
       "A GPU-oriented crowd system that renders thousands of higher-quality characters while preserving runtime control and player interaction.",
@@ -267,7 +267,7 @@ const projectArchive = [
     index: "11",
     title: "Advanced Motion Matching Setup",
     category: "Animation · IK Retargeting",
-    image: `${base}assets/project-motion-matching-edited.png`,
+    image: `${base}assets/project-motion-matching-v4.jpg`,
     alt: "Three locomotion poses with a motion-matching trajectory and foot-contact guides",
     summary:
       "A complete Avaturn character integration with custom IK retargeting, motion-matched locomotion, combat, traversal, and AI movement.",
@@ -283,7 +283,7 @@ const projectArchive = [
     index: "12",
     title: "Avatar System",
     category: "Character Systems · Customization",
-    image: `${base}assets/project-avatar-system-edited.png`,
+    image: `${base}assets/project-avatar-system-v4.jpg`,
     alt: "Character customization screen with a full-body preview and three outfit options",
     summary:
       "A player-avatar system for Moshpit's social concert world, covering character selection, customization, and consistent runtime presentation.",
