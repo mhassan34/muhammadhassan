@@ -66,7 +66,22 @@ try {
   const workHeading = desktop.locator("#work h2");
   await workHeading.waitFor({ state: "visible" });
   check("case study return path", (await workHeading.innerText()).toLowerCase().includes("highlights"));
-  check("fourteen detailed project cards", (await desktop.locator(".project-card").count()) === 14);
+  check("fifteen detailed project cards", (await desktop.locator(".project-card").count()) === 15);
+  check("Sleepy Barista is fourth project", (await desktop.locator(".project-card h3").nth(3).innerText()) === "The Sleepy Barista");
+  const baristaGallery = desktop.getByRole("region", { name: "The Sleepy Barista image gallery" });
+  await baristaGallery.scrollIntoViewIfNeeded();
+  await baristaGallery.locator("img").evaluate((image) => image.decode());
+  check("Barista cover loads", (await baristaGallery.locator("img").getAttribute("src")).endsWith("project-sleepy-barista.png"));
+  await baristaGallery.getByRole("button", { name: "Next The Sleepy Barista image" }).click();
+  await baristaGallery.locator("img").evaluate((image) => image.decode());
+  check("Barista storage image loads", (await baristaGallery.locator("img").getAttribute("src")).endsWith("project-sleepy-barista-storage.png"));
+  await baristaGallery.getByRole("button", { name: "Previous The Sleepy Barista image" }).click();
+  check("Barista previous arrow", (await baristaGallery.locator("img").getAttribute("src")).endsWith("project-sleepy-barista.png"));
+  await baristaGallery.focus();
+  await desktop.keyboard.press("ArrowLeft");
+  check("Barista keyboard wraps", (await baristaGallery.locator("img").getAttribute("src")).endsWith("project-sleepy-barista-storage.png"));
+  await desktop.keyboard.press("ArrowRight");
+  check("Barista has only bare arrow controls", await baristaGallery.locator("button").evaluateAll((buttons) => buttons.length === 2 && buttons.every((button) => !button.textContent.trim() && getComputedStyle(button).backgroundColor === "rgba(0, 0, 0, 0)")));
   check("EOS is third project", (await desktop.locator(".project-card h3").nth(2).innerText()) === "EOS Session & Dedicated Server Framework");
   check("Cereal Killer is first project", (await desktop.locator(".project-card h3").first().innerText()) === "Cereal Killer");
   const cerealDownloads = await desktop.locator(".project-card").first().locator(".project-card__downloads a").evaluateAll((links) => links.map((link) => link.href));
@@ -134,6 +149,16 @@ try {
   check("mobile navigation opens", await mobile.getByRole("navigation", { name: "Primary navigation" }).isVisible());
   await mobile.getByRole("link", { name: "Projects" }).click();
   check("mobile navigation closes", !(await mobile.getByRole("navigation", { name: "Primary navigation" }).isVisible()));
+  const mobileGallery = mobile.getByRole("region", { name: "The Sleepy Barista image gallery" });
+  await mobileGallery.scrollIntoViewIfNeeded();
+  const galleryBox = await mobileGallery.boundingBox();
+  await mobile.mouse.move(galleryBox.x + galleryBox.width * 0.75, galleryBox.y + galleryBox.height / 2);
+  await mobile.mouse.down();
+  await mobile.mouse.move(galleryBox.x + galleryBox.width * 0.25, galleryBox.y + galleryBox.height / 2, { steps: 8 });
+  await mobile.mouse.up();
+  await mobileGallery.locator("img").evaluate((image) => image.decode());
+  check("Barista mobile swipe changes image", (await mobileGallery.locator("img").getAttribute("src")).endsWith("project-sleepy-barista-storage.png"));
+  await mobileGallery.screenshot({ path: "qa/sleepy-barista-mobile.png" });
   const overflow = await mobile.evaluate(() => ({
     page: document.documentElement.scrollWidth,
     viewport: window.innerWidth,

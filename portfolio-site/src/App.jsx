@@ -136,6 +136,26 @@ const projectArchive = [
     tech: "EOS · Dedicated Servers · Replication · RPCs",
   },
   {
+    index: "04",
+    title: "The Sleepy Barista",
+    category: "2D Gameplay / Cafe Management",
+    image: `${base}assets/project-sleepy-barista.png`,
+    alt: "The Sleepy Barista title artwork inside a warm pixel-art cafe",
+    images: [
+      { src: `${base}assets/project-sleepy-barista.png`, alt: "The Sleepy Barista title artwork with a barista behind the cafe counter" },
+      { src: `${base}assets/project-sleepy-barista-storage.png`, alt: "Pixel-art cafe storage room with ingredient shelves, supply crates, and a refrigerator" },
+    ],
+    summary:
+      "A cozy 2D top-down coffee-shop management game built in Unreal Engine 5.6 with native C++, Paper2D sprites, flipbook animation, and UMG.",
+    details: [
+      "Concurrent dine-in and takeaway customer groups with table reservations, separate queue positions, randomized orders, and station-by-station preparation.",
+      "Shop and back-room inventory, paid restocking, ingredient consumption, revenue, expenses, and profit tracked through a dedicated management component.",
+      "Directional player animation, proximity interactions, adjustable customer flow, and independently editable stations, tables, and gameplay markers.",
+    ],
+    role: "Gameplay & Systems Development",
+    tech: "UE5.6 · C++ · Paper2D · UMG",
+  },
+  {
     index: "02",
     title: "DirectSplat",
     category: "Gaussian Splatting / Plugin",
@@ -382,6 +402,48 @@ function SectionHeading({ title, note }) {
   );
 }
 
+function ProjectImageGallery({ title, images }) {
+  const [imageIndex, setImageIndex] = useState(0);
+  const gestureRef = useRef(null);
+  const move = (direction) => setImageIndex((current) => (current + direction + images.length) % images.length);
+
+  return (
+    <div
+      className="directsplat-media project-image-gallery"
+      role="region"
+      aria-label={`${title} image gallery`}
+      aria-roledescription="carousel"
+      tabIndex={0}
+      onKeyDown={(event) => {
+        if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+          event.preventDefault();
+          move(event.key === "ArrowLeft" ? -1 : 1);
+        }
+      }}
+      onPointerDown={(event) => {
+        if (event.target.closest("button")) return;
+        gestureRef.current = { x: event.clientX, y: event.clientY };
+        event.currentTarget.setPointerCapture(event.pointerId);
+      }}
+      onPointerUp={(event) => {
+        const start = gestureRef.current;
+        gestureRef.current = null;
+        if (!start) return;
+        const dx = event.clientX - start.x;
+        const dy = event.clientY - start.y;
+        if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) move(dx < 0 ? 1 : -1);
+      }}
+      onPointerCancel={() => { gestureRef.current = null; }}
+    >
+      <img src={images[imageIndex].src} alt={images[imageIndex].alt} loading="lazy" draggable={false} />
+      <div className="directsplat-media__controls">
+        <button type="button" onClick={() => move(-1)} aria-label={`Previous ${title} image`}><ArrowLeft size={28} /></button>
+        <button type="button" onClick={() => move(1)} aria-label={`Next ${title} image`}><ArrowRight size={28} /></button>
+      </div>
+    </div>
+  );
+}
+
 function DirectSplatMedia() {
   const [mediaIndex, setMediaIndex] = useState(0);
   const reducedMotion = useMemo(() => window.matchMedia("(prefers-reduced-motion: reduce)").matches, []);
@@ -561,7 +623,7 @@ function MainPortfolio() {
         </section>
 
         <section className="work section" id="work">
-          <SectionHeading title="Highlights" note="Four standout systems. Fourteen complete breakdowns." />
+          <SectionHeading title="Highlights" note="Four standout systems. Fifteen complete breakdowns." />
 
           <div className="project-showcase">
             <div className="project-tabs" role="tablist" aria-label="Featured projects">
@@ -618,7 +680,7 @@ function MainPortfolio() {
             <div className="project-grid">
               {projectArchive.map((item) => (
                 <article className="project-card" key={item.title}>
-                  {item.title === "DirectSplat" ? <DirectSplatMedia /> : <img src={item.image} alt={item.alt} loading="lazy" />}
+                  {item.title === "DirectSplat" ? <DirectSplatMedia /> : item.images ? <ProjectImageGallery title={item.title} images={item.images} /> : <img src={item.image} alt={item.alt} loading="lazy" />}
                   <div className="project-card__body">
                     <div className="project-card__meta">
                       <span>{item.category}</span>

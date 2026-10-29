@@ -879,6 +879,10 @@ img {
   object-fit: cover;
 }
 
+.project-image-gallery > img {
+  object-fit: contain;
+}
+
 .directsplat-media__controls {
   position: absolute;
   inset: 0;
