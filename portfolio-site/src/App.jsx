@@ -116,6 +116,9 @@ const projectArchive = [
       "Reusable UMG for settings, key bindings, statistics, training, loadouts, player options, squad status, objectives, and the in-game HUD.",
       "Replicated gameplay state, RPC-driven interactions, achievements, chat, voice, and resilient UI connected to live online state.",
     ],
+    links: [
+      { label: "invasion.gr", href: "https://invasion.gr/" },
+    ],
     role: "UMG & Multiplayer Development",
     tech: "UMG · EOS · C++ · Blueprints",
   },
@@ -131,6 +134,9 @@ const projectArchive = [
       "Session creation, discovery, server browsing, joining, leaving, and client transition flows through Epic Online Services.",
       "Dedicated-server architecture with replicated gameplay state and RPC-driven player interactions.",
       "Clear UI and networking boundaries keep menus synchronized with real online state in an Unreal Engine source build.",
+    ],
+    links: [
+      { label: "invasion.gr", href: "https://invasion.gr/" },
     ],
     role: "Multiplayer Development",
     tech: "EOS · Dedicated Servers · Replication · RPCs",
@@ -178,6 +184,10 @@ const projectArchive = [
       "RDG compute passes, GPU readback, reconstruction, MicroTrainer processing, and resumable long-running jobs.",
       "Voxel and variance-based merging reduced outputs from hundreds of megabytes to tens while preserving useful detail.",
     ],
+    links: [
+      { label: "unrealtwin.com", href: "https://www.unrealtwin.com/" },
+      { label: "moshpit.studio", href: "https://www.moshpit.studio/" },
+    ],
     role: "Lead Programmer",
     tech: "UE5 · C++ · RDG · PLY",
   },
@@ -193,6 +203,9 @@ const projectArchive = [
       "Replicated character widgets, animations, emojis, player interactions, chat, and voice-chat systems.",
       "Epic Online Services and Steam-compatible online flows with Pixel Streaming delivery.",
       "Metahumans, Avaturn characters, motion matching, and Nanite crowd systems built with C++ and Blueprints.",
+    ],
+    links: [
+      { label: "moshpit.live", href: "https://www.moshpit.live/" },
     ],
     role: "Gameplay & Multiplayer",
     tech: "EOS · Pixel Streaming · Replication",
@@ -290,6 +303,9 @@ const projectArchive = [
       "World/local placement, mouse-selected focus targets, orientation, intensity, distance, and music-response controls.",
       "Save, preview, and stop controls let creators iterate on a concert setup without rebuilding gameplay logic.",
     ],
+    links: [
+      { label: "moshpit.live", href: "https://www.moshpit.live/" },
+    ],
     role: "Tools & Gameplay",
     tech: "UMG · Blueprints · Sequencer",
   },
@@ -305,6 +321,9 @@ const projectArchive = [
       "Reusable firework actors and configurable launch patterns for virtual concert environments.",
       "Sequence-driven timing connects controlled bursts to performance cues alongside the lighting workflow.",
       "Designer-facing controls support rapid placement, preview, and iteration inside Unreal Engine.",
+    ],
+    links: [
+      { label: "moshpit.live", href: "https://www.moshpit.live/" },
     ],
     role: "Tools & Gameplay",
     tech: "Blueprints · VFX · Sequencer",
@@ -697,6 +716,21 @@ function MainPortfolio() {
                     </div>
                     <h3>{item.title}</h3>
                     <p>{item.summary}</p>
+                    {item.links?.length > 0 && (
+                      <div className="project-card__links" aria-label={`${item.title} links`}>
+                        {item.links.map((link, index) => (
+                          <a
+                            className={`text-link ${index === 0 ? "project-card__link--primary" : "project-card__link--secondary"}`}
+                            href={link.href}
+                            key={link.href}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            {link.label} <ArrowUpRight size={16} weight="bold" aria-hidden="true" />
+                          </a>
+                        ))}
+                      </div>
+                    )}
                     {item.downloads?.length > 0 && (
                       <div className="project-card__downloads" aria-label={`${item.title} downloads`}>
                         {item.downloads.map((download, index) => (

@@ -84,6 +84,39 @@ try {
   check("Barista keyboard wraps", (await baristaGallery.locator("img").getAttribute("src")).endsWith("project-sleepy-barista-storage.png"));
   await desktop.keyboard.press("ArrowRight");
   check("Barista has only bare arrow controls", await baristaGallery.locator("button").evaluateAll((buttons) => buttons.length === 2 && buttons.every((button) => !button.textContent.trim() && getComputedStyle(button).backgroundColor === "rgba(0, 0, 0, 0)")));
+  const expectedProjectLinks = {
+    "Invasion Multiplayer UI": ["https://invasion.gr/"],
+    "EOS Session & Dedicated Server Framework": ["https://invasion.gr/"],
+    DirectSplat: ["https://www.unrealtwin.com/", "https://www.moshpit.studio/"],
+    "Multiplayer Concert World": ["https://www.moshpit.live/"],
+    "Lighting Sequence Tools": ["https://www.moshpit.live/"],
+    "Fireworks System": ["https://www.moshpit.live/"],
+  };
+  for (const [title, hrefs] of Object.entries(expectedProjectLinks)) {
+    const card = desktop.locator(".project-card").filter({ has: desktop.getByRole("heading", { name: title, exact: true }) });
+    const links = await card.locator(".project-card__links a").evaluateAll((items) => items.map((item) => item.href));
+    check(`${title} links`, JSON.stringify(links) === JSON.stringify(hrefs), links.join(", "));
+    const summary = card.locator(".project-card__body > p").first();
+    await summary.scrollIntoViewIfNeeded();
+    const clickTarget = await summary.evaluate((node) => {
+      const box = node.getBoundingClientRect();
+      return document.elementFromPoint(box.left + box.width / 2, box.top + box.height / 2)?.closest("a")?.href;
+    });
+    check(`${title} card opens primary link`, clickTarget === hrefs[0], clickTarget);
+  }
+  const splatCard = desktop.locator(".project-card").filter({ has: desktop.getByRole("heading", { name: "DirectSplat", exact: true }) });
+  await splatCard.locator(".project-card__link--secondary").first().scrollIntoViewIfNeeded();
+  const secondaryOnTop = await splatCard.locator(".project-card__link--secondary").evaluate((node) => {
+    const box = node.getBoundingClientRect();
+    return document.elementFromPoint(box.left + box.width / 2, box.top + box.height / 2)?.closest("a")?.href;
+  });
+  check("DirectSplat second link stays clickable", secondaryOnTop === "https://www.moshpit.studio/", secondaryOnTop);
+  await splatCard.locator(".directsplat-media__controls button").first().scrollIntoViewIfNeeded();
+  const splatControlOnTop = await splatCard.locator(".directsplat-media__controls button").first().evaluate((node) => {
+    const box = node.getBoundingClientRect();
+    return document.elementFromPoint(box.left + box.width / 2, box.top + box.height / 2) === node || node.contains(document.elementFromPoint(box.left + box.width / 2, box.top + box.height / 2));
+  });
+  check("DirectSplat gallery controls stay clickable", splatControlOnTop);
   check("EOS is third project", (await desktop.locator(".project-card h3").nth(2).innerText()) === "EOS Session & Dedicated Server Framework");
   check("Cereal Killer is first project", (await desktop.locator(".project-card h3").first().innerText()) === "Cereal Killer");
   const cerealDownloads = await desktop.locator(".project-card").first().locator(".project-card__downloads a").evaluateAll((links) => links.map((link) => link.href));
