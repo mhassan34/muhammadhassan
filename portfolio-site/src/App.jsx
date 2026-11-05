@@ -153,6 +153,16 @@ const projectArchive = [
       "Directional player animation, proximity interactions, adjustable customer flow, and independently editable stations, tables, and gameplay markers.",
     ],
     role: "Gameplay & Systems Development",
+    downloads: [
+      {
+        label: "Android Build",
+        href: "https://github.com/mhassan34/CerealKiller-Builds/releases/latest/download/SleepyBarista-Android.zip",
+      },
+      {
+        label: "Windows Build",
+        href: "https://github.com/mhassan34/CerealKiller-Builds/releases/latest/download/SleepyBarista-Windows.zip",
+      },
+    ],
     tech: "UE5.6 · C++ · Paper2D · UMG",
   },
   {
