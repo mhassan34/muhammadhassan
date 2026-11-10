@@ -162,7 +162,7 @@ const projectArchive = [
     downloads: [
       {
         label: "Android Build",
-        href: "https://github.com/mhassan34/CerealKiller-Builds/releases/latest/download/SleepyBarista-Android.zip",
+        href: "https://github.com/mhassan34/CerealKiller-Builds/releases/latest/download/SleepyBarista-Android.apk",
       },
       {
         label: "Windows Build",

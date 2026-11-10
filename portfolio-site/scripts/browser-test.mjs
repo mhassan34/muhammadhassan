@@ -69,7 +69,7 @@ try {
   check("fifteen detailed project cards", (await desktop.locator(".project-card").count()) === 15);
   check("Sleepy Barista is fourth project", (await desktop.locator(".project-card h3").nth(3).innerText()) === "The Sleepy Barista");
   const baristaDownloads = await desktop.locator(".project-card").nth(3).locator(".project-card__downloads a").evaluateAll((links) => links.map((link) => link.href));
-  check("Sleepy Barista uses latest public build links", baristaDownloads.length === 2 && baristaDownloads.every((href) => href.includes("/mhassan34/CerealKiller-Builds/releases/latest/download/SleepyBarista-") && href.endsWith(".zip")));
+  check("Sleepy Barista Android download is APK and Windows download is ZIP", baristaDownloads.length === 2 && baristaDownloads[0].endsWith("/SleepyBarista-Android.apk") && baristaDownloads[1].endsWith("/SleepyBarista-Windows.zip"));
   const baristaGallery = desktop.getByRole("region", { name: "The Sleepy Barista image gallery" });
   await baristaGallery.scrollIntoViewIfNeeded();
   await baristaGallery.locator("img").evaluate((image) => image.decode());
