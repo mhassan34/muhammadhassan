@@ -109,6 +109,20 @@ const projectArchive = [
     category: "UMG / Multiplayer / EOS",
     image: `${base}assets/project-invasion-v4.jpg`,
     alt: "Tactical four-player squad with a production multiplayer HUD and online status indicators",
+    images: [
+      { src: `${base}assets/project-invasion-v4.jpg`, alt: "Current Invasion multiplayer UI cover showing the squad HUD and online status" },
+      { src: `${base}assets/invasion-change-team.jpg`, alt: "Invasion team selection screen over a tactical map" },
+      { src: `${base}assets/invasion-credits.jpg`, alt: "Invasion credits screen" },
+      { src: `${base}assets/invasion-match-scoreboard.jpg`, alt: "Invasion match scoreboard with player statistics" },
+      { src: `${base}assets/invasion-defeat-honors.jpg`, alt: "Invasion defeat screen with post-match honors" },
+      { src: `${base}assets/invasion-fireteam-interaction-wheel.jpg`, alt: "Fireteam interaction wheel shown in an Invasion combat zone" },
+      { src: `${base}assets/invasion-loadout.jpg`, alt: "Invasion weapon loadout and equipment selection screen" },
+      { src: `${base}assets/invasion-operator-customization.jpg`, alt: "Invasion operator customization screen" },
+      { src: `${base}assets/invasion-rank-emblem.jpg`, alt: "Invasion rank emblem" },
+      { src: `${base}assets/invasion-server-browser.jpg`, alt: "Invasion dedicated server browser" },
+      { src: `${base}assets/invasion-settings-audio.jpg`, alt: "Invasion settings screen with audio and background options" },
+      { src: `${base}assets/invasion-settings.jpg`, alt: "Invasion gameplay settings screen" },
+    ],
     summary:
       "Ongoing UMG and multiplayer development for a squad-based shooter, connecting every player-facing flow to real Epic Online Services and replicated game state.",
     details: [
@@ -327,6 +341,32 @@ const projectArchive = [
     ],
     role: "Tools & Gameplay",
     tech: "Blueprints · VFX · Sequencer",
+  },
+  {
+    index: "12",
+    title: "Studio (VR Concert Tool)",
+    category: "Virtual Reality / Concert Creator Tools",
+    image: `${base}assets/studio-vr-concert-drafts.jpg`,
+    alt: "Moshpit Studio VR concert tool showing saved concert drafts",
+    images: [
+      { src: `${base}assets/studio-vr-concert-drafts.jpg`, alt: "VR concert project library with saved drafts" },
+      { src: `${base}assets/studio-vr-concert-recordings.jpg`, alt: "Automated recording selection for a concert session" },
+      { src: `${base}assets/studio-vr-concert-playback.jpg`, alt: "Virtual concert playback with venue controls and timeline" },
+      { src: `${base}assets/studio-vr-concert-review.jpg`, alt: "Concert release review page with artist credits and finalized media" },
+      { src: `${base}assets/studio-vr-concert-published.jpg`, alt: "Published concert confirmation with sharing options" },
+      { src: `${base}assets/studio-vr-concert-render.jpg`, alt: "Video rendering options for a recorded VR concert" },
+      { src: `${base}assets/studio-vr-concert-venues.jpg`, alt: "VR concert venue browser with selectable environments" },
+      { src: `${base}assets/studio-vr-concert-details.jpg`, alt: "Concert project details form with image and performance fields" },
+    ],
+    summary:
+      "Designed and built the creator-facing UI for Moshpit Studio's VR concert tool, supporting venue selection, concert setup, recording, review, video rendering, and publishing.",
+    details: [
+      "Created clear screens for browsing concert venues, managing drafts, and entering project details.",
+      "Built recording, playback, and render controls for virtual concert sessions.",
+      "Designed review and publishing flows to help creators finalize concert media.",
+    ],
+    role: "UI Developer · Moshpit Studio",
+    tech: "UI/UX · VR Concerts · Creator Tools",
   },
   {
     index: "11",

@@ -66,7 +66,8 @@ try {
   const workHeading = desktop.locator("#work h2");
   await workHeading.waitFor({ state: "visible" });
   check("case study return path", (await workHeading.innerText()).toLowerCase().includes("highlights"));
-  check("fifteen detailed project cards", (await desktop.locator(".project-card").count()) === 15);
+  check("sixteen detailed project cards", (await desktop.locator(".project-card").count()) === 16);
+
   check("Sleepy Barista is fourth project", (await desktop.locator(".project-card h3").nth(3).innerText()) === "The Sleepy Barista");
   const baristaDownloads = await desktop.locator(".project-card").nth(3).locator(".project-card__downloads a").evaluateAll((links) => links.map((link) => link.href));
   check("Sleepy Barista Android download is APK and Windows download is ZIP", baristaDownloads.length === 2 && baristaDownloads[0].endsWith("/SleepyBarista-Android.apk") && baristaDownloads[1].endsWith("/SleepyBarista-Windows.zip"));
